@@ -49,7 +49,17 @@
 		DEMO ONLY [remove on production]
 *************************************************** **/
 
-
+/** Added by Cindy Okino
+ **************************************************************** **/
+.service-img {
+	height: 250px;
+}
+.img-news {
+	height: 180px;
+}
+.img-client {
+	height: 80px;
+}
 
 /** Globals
  **************************************************************** **/
@@ -1331,6 +1341,7 @@ section.dark.page-header ul.page-options a {
 			transition: all .800s;
 }
 #header a.logo>img {
+	z-index: 999;
 	height:80px;
 	-webkit-transition: all .300s;
 	   -moz-transition: all .300s;
@@ -1338,6 +1349,7 @@ section.dark.page-header ul.page-options a {
 			transition: all .300s;
 }
 #header a.logo.logo-responsive>img {
+	z-index: 999;
 	height:100%; /* used on center - example: page-coming-soon-1.html */
 }
 
