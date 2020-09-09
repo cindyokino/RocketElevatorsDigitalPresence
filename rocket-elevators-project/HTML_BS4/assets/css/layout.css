@@ -1,10 +1,10 @@
 /** ********************************************** **
-	@Author			Dorin Grigoras
-	@Website		www.stepofweb.com
-	@Last Update	Wednesday, Apryl 26, 2017
+	@Author			Cindy Okino
+	@Last Update	September 16, 2020
 
 	TABLE CONTENTS
 	-------------------------------
+		Added by Cindy Okino
 		Globals
 		Boxed
 		Color Background
@@ -50,7 +50,7 @@
 *************************************************** **/
 
 /** Added by Cindy Okino
- **************************************************************** **/
+ ******************************************************************/
 .service-img {
 	height: 250px;
 }
@@ -66,6 +66,11 @@
 .blue-li {
 	color:#004786;
 }
+
+/** /Added by Cindy Okino
+ ******************************************************************/
+
+
 
 /** Globals
  **************************************************************** **/
@@ -1333,7 +1338,7 @@ section.dark.page-header ul.page-options a {
 	position: relative;
 	left:0; top:0; right:0;
 	z-index:1000;
-	font-size:14px;
+	font-size:16px;
 	background-color:#fff;
 	border-bottom: rgba(0,0,0,0.05) 1px solid;
 
@@ -1957,7 +1962,6 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 		text-transform:uppercase;
 	}
 		body.menu-vertical #mainMenu.sidebar-vertical .navbar-default .navbar-nav>li>a.dropdown-toggle {
-			background-image: url('../images/_smarty/submenu_light.png');
 			background-position:center right;
 			background-repeat:no-repeat;
 		}

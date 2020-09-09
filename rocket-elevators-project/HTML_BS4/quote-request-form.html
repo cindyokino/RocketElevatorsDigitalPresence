@@ -129,10 +129,13 @@
 											HOME
 										</a>
 									</li>
-									<li><!-- SERVICES -->
-										<a href="index-homepage.html#services">
-											SERVICES
-										</a>
+									<li><!-- SERVICES -->								
+										<a class="dropdown-toggle" href="index-homepage.html#services">SERVICES</a>
+										<ul class="dropdown-menu white-space=nowrap">
+											<li><a href="residential-services.html">Residential</a></li>
+											<li><a href="corporate-services.html">Corporate</a></li>
+											<li><a href="quote-request-form.html">Get a Quote</a></li>
+										</ul>
 									</li>
 									<li><!-- PORTFOLIO -->
 										<a href="index-homepage.html#portfolio">
@@ -167,8 +170,8 @@
 
 			<hr class="m-0" /><!-- 1px line separator -->
 
-			<!-- CONTACT QUOTE FORM-->
-			<section id="contact">
+			<!-- QUOTE FORM-->
+			<section id="quote-form">
 				<div class="container">
 
 					<header class="text-center mb-60">
@@ -179,43 +182,16 @@
 
 
 					<div class="row">
-
-						<!-- QUOTE FORM -->
 						<div class="col-md-12 col-sm-12">
 
 							<h3>Please fill out the form</h3>
 
 							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
-
 							<!-- Alert Success -->
 							<div id="alert_success" class="alert alert-success mb-30">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<strong>Thank You!</strong> Your message successfully sent!
 							</div><!-- /Alert Success -->
-
 
 							<!-- Alert Failed -->
 							<div id="alert_failed" class="alert alert-danger mb-30">
@@ -223,23 +199,92 @@
 								<strong>[SMTP] Error!</strong> Internal server error!
 							</div><!-- /Alert Failed -->
 
-
 							<!-- Alert Mandatory -->
 							<div id="alert_mandatory" class="alert alert-danger mb-30">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
 							</div><!-- /Alert Mandatory -->
+							
+
+							<!-- Type of building -->
+							<h4>Type of building</h4>
+							<div class="row" id="radioButtons">
+								<div class="form-check-inline" style="margin-left:15px">
+									<input type="radio" class="form-check-input" name="typeOfBuilding" id="form-residential"> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
+									<label class="form-check-label" for="form-residential">Residential</label>
+								</div>									
+								<div class="form-check-inline" style="margin-left:50px">
+									<input type="radio" class="form-check-input" name="typeOfBuilding" id="form-commercial">
+									<label class="form-check-label" for="form-commercial">Commercial</label>
+								</div>
+								<div class="form-check-inline" style="margin-left:50px">
+									<input type="radio" class="form-check-input" name="typeOfBuilding" id="form-corporate">
+									<label class="form-check-label" for="form-corporate">Corporate</label>
+								</div>
+								<div class="form-check-inline" style="margin-left:50px">
+									<input type="radio" class="form-check-input" name="typeOfBuilding" id="form-hybrid">
+									<label class="form-check-label" for="form-hybrid">Hybrid</label>
+								</div>
+							</div> <!-- /Type of building -->
+							
+							<!-- Residential Building Form -->
+							<div id="residentialForm">
+								<form onsubmit="return false">
+									<fieldset>
+										<h4>Residential building</h4>
+										<div>
+											<label for="num-apartments">Number of apartments in the building</label>
+											<input required type="number" class="form-control" name="num-apartments" id="num-apartments">											
+										</div>
+										<div>
+											<label for="num-apartments">Number of floors in the building</label>
+											<input required type="number" class="form-control" name="num-apartments" id="num-apartments">											
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+											</div>
+										</div>
+									</fieldset>
+								</form> <!-- /Residential Building Form -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- / QUOTE FORM-->
 
 
+
+
+			<!-- CONTACT -->
+			<section id="contact">
+				<div class="container">
+
+					<header class="text-center mb-60">
+						<h2>Contact Us</h2>
+						<p class="lead font-lato">Come to us and get the best elevators</p>
+						<hr />
+					</header>
+
+
+					<div class="row">
+
+						<!-- FORM -->
+						<div class="col-md-8 col-sm-8">
+
+							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
+							
 							<form action="php/contact.php" method="post" enctype="multipart/form-data">
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
-											<div class="col-md-3">
-												<label for="contact:name">Type of building</label>
-												<input type="radio" id="male" name="residential" value="residential">
-												<label for="male">Residential</label>
+											<div class="col-md-4">
+												<label for="contact:name">Full Name *</label>
+												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
@@ -292,162 +337,13 @@
 							</form>
 
 						</div>
-						<!-- /QUOTE FORM -->
-					</div>
-
-				</div>
-			</section>
-			<!-- /CONTACT QUOTE FORM-->
-
-
-
-
-			<!-- CONTACT -->
-			<section id="contact">
-				<div class="container">
-
-					<header class="text-center mb-60">
-						<h2>Contact Us</h2>
-						<p class="lead font-lato">Come to us and get the best elevators</p>
-						<hr />
-					</header>
-
-
-					<div class="row">
-
-						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
-
-							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
-
-							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
-
-							<!-- Alert Success -->
-							<div id="alert_success" class="alert alert-success mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your message successfully sent!
-							</div><!-- /Alert Success -->
-
-
-							<!-- Alert Failed -->
-							<div id="alert_failed" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>[SMTP] Error!</strong> Internal server error!
-							</div><!-- /Alert Failed -->
-
-
-							<!-- Alert Mandatory -->
-							<div id="alert_mandatory" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-							</div><!-- /Alert Mandatory -->
-
-
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
-								<fieldset>
-									<input type="hidden" name="action" value="contact_send" />
-
-									<div class="row">
-											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-8">
-												<label for="contact:subject">Subject *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-											</div>
-											<div class="col-md-4">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
-													<option value="">--- Select ---</option>
-													<option value="Marketing">Marketing</option>
-													<option value="Webdesign">Webdesign</option>
-													<option value="Architecture">Architecture</option>
-												</select>
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment</label>
-
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
-												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-
-											</div>
-									</div>
-
-								</fieldset>
-
-								<div class="row">
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-									</div>
-								</div>
-							</form>
-
-						</div>
 						<!-- /FORM -->
 
 
 						<!-- INFO -->
 						<div class="col-md-4 col-sm-4">
 
-							<h2>Visit Us</h2>
-
-							<!-- 
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							-->	
+							<h2>Visit Us</h2>	
 
 							<div id="map2" class="h-400">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11194.06354771489!2d-73.5671205!3d45.4594108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x852cd133f4fe32e9!2sCodeBoxx!5e0!3m2!1spt-BR!2sca!4v1599520055878!5m2!1spt-BR!2sca" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -555,6 +451,8 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+
+		<script src="assets/js/quote-form.js"></script>
 
 		<!-- PAGELEVEL SCRIPTS -->
 		<script src="assets/js/contact.js"></script>
