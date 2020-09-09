@@ -7150,8 +7150,8 @@ section#slider:not(.custom-form) .btn-default {
 	}
 
 	.tp-bannertimer {
-		background:rgba(0,0,0,0.5) !important;
-		height:2px !important;
+		background:rgba(255, 0, 0, 0.5) !important;
+		height:4px !important;
 	}
 
 	.tparrows.round:before {

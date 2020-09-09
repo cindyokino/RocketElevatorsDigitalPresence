@@ -13,3 +13,9 @@
 
 *************************************************** **/
 
+var numElevators = 0;
+
+function residentialForm() {
+	unitsPerFloor = numApartments/numFloors;
+	numShafts = ceil(unitsPerFloor/6);
+}
