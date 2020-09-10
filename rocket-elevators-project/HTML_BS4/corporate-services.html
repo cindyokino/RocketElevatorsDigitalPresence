@@ -522,29 +522,31 @@
 							</div><!-- /Alert Mandatory -->
 
 
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
+							<form onsubmit="return false" action="" method="post" enctype="multipart/form-data">
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
 											<div class="col-md-4">
-												<label for="contact:name">Full Name *</label>
+												<label for="contact:name">Contact Full Name *</label>
 												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:email">E-mail Address *</label>
+												<label for="contact:business">Business Name </label>
+												<input type="text" value="" class="form-control" name="contact[business]" id="contact:business">
+											</div>
+											<div class="col-md-4">
+												<label for="contact:email">E-mail *</label>
 												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
 											</div>
 											<div class="col-md-4">
-												<label for="contact:phone">Phone</label>
+												<label for="contact:phone">Phone Number</label>
 												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
 											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-8">
-												<label for="contact:subject">Subject *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-											</div>
+											<div class="col-md-4">
+												<label for="contact:project">Project Name</label>
+												<input type="text" value="" class="form-control" name="contact[project]" id="contact:project">
+											</div>	
 											<div class="col-md-4">
 												<label for="contact_department">Department</label>
 												<select class="form-control pointer" name="contact[department]">
@@ -554,6 +556,12 @@
 													<option value="Architecture">Others</option>
 												</select>
 											</div>
+									</div>
+									<div class="row">											
+										<div class="col-md-12">
+											<label for="contact:description">Project Description *</label>
+											<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:description">
+										</div>
 									</div>
 									<div class="row">
 											<div class="col-md-12">
@@ -656,7 +664,7 @@
 							<!-- Newsletter Form -->
 							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
 
-							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+							<form onsubmit="return false" class="validate" action="" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">

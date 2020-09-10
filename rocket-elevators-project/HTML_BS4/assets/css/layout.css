@@ -67,6 +67,37 @@
 	color:#004786;
 }
 
+#quote-form {
+	padding-bottom: 20px;
+	background-color: #eeeeee;
+}
+
+#residentialForm {
+	border: 2px solid #eeeeee;
+	/* background-color: #eeeeee; */
+}
+
+#commercialForm {
+	border: 2px solid #eeeeee;
+	/* background-color: #eeeeee; */
+}
+
+#corporateForm {
+	border: 2px solid #eeeeee;
+	/* background-color: #eeeeee; */
+}
+
+#hybridForm {
+	border: 2px solid #eeeeee;
+	/* background-color: #eeeeee; */
+}
+
+#numElevatorsBox {	
+	color: #3072e0;
+	/* border-bottom: 2px solid white; */
+}
+
+
 /** /Added by Cindy Okino
  ******************************************************************/
 
