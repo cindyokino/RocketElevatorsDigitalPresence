@@ -250,25 +250,25 @@
 									<div class="form-group row col-md-6">
 										<label for="numBusinessesCommercial" class="col-sm-8 col-form-label">Number of businesses:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBusinessesCommercial">
+											<input type="number" class="form-control" id="numBusinessesCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of floors:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numFloorsCommercial">
+											<input type="number" class="form-control" id="numFloorsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numBasementsCommercial" class="col-sm-8 col-form-label">Number of basements:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBasementsCommercial">
+											<input type="number" class="form-control" id="numBasementsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numParkingCommercial" class="col-sm-8 col-form-label">Number of parkings:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numParkingCommercial">
+											<input type="number" class="form-control" id="numParkingCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -287,7 +287,7 @@
 									<div class="form-group row col-md-6">
 										<label for="numCompaniesCorporate" class="col-sm-8 col-form-label">Number of companies:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numCompaniesCorporate">
+											<input type="number" class="form-control" id="numCompaniesCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -305,7 +305,7 @@
 									<div class="form-group row col-md-6">
 										<label for="numParkingCorporate" class="col-sm-8 col-form-label">Number of parkings:</label>
 										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numParkingCorporate">
+											<input type="number" class="form-control" id="numParkingCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -393,35 +393,38 @@
 
 						</div>
 					</div>
+					<hr />
 
 					<!-- Recommended number of elevators -->
-					<div id="numElevators" class="container">
-						<span class="font-lato fs-30">
-							Recommended number of elevators for your building:
-							<span id="calculatedNumOfElevators"><strong> 0 </strong></span>
+					<div class="row">
+					<div class="col-md-4 results">
+						<span class="font-lato fs-20">
+							Recommended number of elevators:
+						</br><span id="calculatedNumOfElevators"><strong> 0 </strong></span>
 						</span>
 					</div> <!-- /Recommended number of elevators -->
 
 					<!-- Price of equipments -->
-					<div id="numElevators" class="container">
-						<span class="font-lato fs-30">
-							Price of the equipments: $
-							<span id="calculatedPriceElevators"><strong> 0 </strong></span>
+					<div class="col-md-4 results">
+						<span class="font-lato fs-20">
+							Price of the equipments: </br><span class="blueForm">$</span>
+							<span id="calculatedPriceElevators" class="blueForm"><strong> 0 </strong></span>
 						</span>
 					</div> <!-- /Price of equipments -->
 
 					<!-- Estimated cost of installation -->
-					<div id="numElevators" class="container">
-						<span class="font-lato fs-30">
-							Estimated cost of installation: $
-							<span id="calculatedPriceInstallation"><strong> 0 </strong></span>
+					<div class="col-md-4 results">
+						<span class="font-lato fs-20">
+							Estimated cost of installation: </br><span class="blueForm">$</span>
+							<span id="calculatedPriceInstallation" class="blueForm"><strong> 0 </strong></span>
 						</span>
 					</div> <!-- /Estimated cost of installation -->
-	
+					</div>
+					
 					<!-- TOTAL PRICE -->
-					<div id="totalPrice" class="container">
-						<span class="font-lato fs-30">
-							Total price: $ 
+					<div id="totalPrice">
+						<span class="font-lato fs-40">
+							Total price: <span class="blueFormTotal">$</span> 
 							<span id="calculatedTotalPrice"><strong> 0 </strong></span>
 						</span>
 					</div> <!-- /TOTAL PRICE -->

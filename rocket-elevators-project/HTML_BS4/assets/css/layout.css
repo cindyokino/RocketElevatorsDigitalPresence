@@ -92,8 +92,34 @@
 	/* background-color: #eeeeee; */
 }
 
+#calculatedNumOfElevators {
+	color: #3072e0;
+	font-weight: 600;
+	font-size: 25px;
+
+}
+
+.blueForm {
+	color: #3072e0;
+	font-weight: 600;
+	font-size: 25px;
+}
+
+.blueFormTotal {
+	color: #3072e0;
+	font-weight: 500;
+	font-size: 40px;
+}
+
 #totalPrice {
 	color: #3072e0;
+	text-align: center;
+	margin-top: 30px;
+	border-style: groove;
+}
+
+.results {
+	text-align: center;
 }
 
 

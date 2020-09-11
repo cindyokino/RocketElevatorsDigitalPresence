@@ -42,15 +42,35 @@ var numElevatorsResidential = function () {
 
 // /***** CALCULATE NUMBER OF ELEVATORS - COMMERCIAL BUILDING *****/
 // var numElevatorsCommercial = function () {
+// 	var elevators = 0;
+// 	elevators = Number($("#numCagesCommercial").val());
 
+// 	$("#calculatedNumOfElevators").text(elevators);	
+// 	numElevators = elevators;
 // };
 
 
 
-// /***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING *****/
-// var numElevatorsCorporate = funtion () {
+/***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING *****/
+var numElevatorsCorporate = function () { 
+	var elevators = 0;
+	var numColumns = 0;
+	var numberElevatorsPerColumn = 0;
+	var companies = parseInt($("#numCompaniesCorporate").val());
+	var floors = parseInt($("#numFloorsCorporate").val());
+	var basements = parseInt($("#numBasementsCorporate").val());
+	var parkings = parseInt($("#numParkingCorporate").val());
+	var occupants = parseInt($("#numOccupantsFloorCorporate").val());
 
-// }
+	var totalOccupants;
+	totalOccupants = occupants * floors;
+	elevators = totalOccupants / 1000;
+	numColumns = floors / 20;
+	numberElevatorsPerColumn = elevators / numColumns;
+
+	$("#calculatedNumOfElevators").text(elevators);	
+	numElevators = elevators;
+};
 
 
 
@@ -61,10 +81,9 @@ var numElevatorsResidential = function () {
 
 
 
-// /***** CALCULATE PRICE BY TYPE *****/
-// var calculatePriceBytype = function () {
-// 	var optionName = this.id;
-// 	optionName = optionName.replace("Radio", "Form");
+// /***** CALCULATE PRICE BY LINE OF  *****/
+// var calculatePricesByLine = function () {
+// 	$("#calculatedNumOfElevators").text(elevators);	
 // }
 
 
@@ -77,7 +96,7 @@ var onChangeBuildingType = function () {
 	$("#" + optionName).show();
 };
 
-$("input[name=typeOfBuilding]").on("change", onChangeBuildingType); //calculatePriceBytype - ADD THIS PARAMETER??
+$("input[name=typeOfBuilding]").on("change", onChangeBuildingType); 
 
 $(document).ready(function () {
 	$("#residentialRadio").change();
