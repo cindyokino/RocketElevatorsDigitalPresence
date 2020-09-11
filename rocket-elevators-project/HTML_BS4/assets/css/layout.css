@@ -92,9 +92,8 @@
 	/* background-color: #eeeeee; */
 }
 
-#numElevatorsBox {	
+#totalPrice {
 	color: #3072e0;
-	/* border-bottom: 2px solid white; */
 }
 
 
@@ -4308,7 +4307,7 @@ form .row {
 	margin-bottom:20px;
 }
 form label {
-	font-weight:bold;
+	font-weight:400;
 }
 table a {
 	color:#666;

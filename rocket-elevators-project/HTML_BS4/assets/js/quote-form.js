@@ -14,8 +14,58 @@
 *************************************************** **/
 
 var numElevators = 0;
+var priceElevators = 0;
+var priceInstallation = 0;
 
-function residentialForm() {
-	unitsPerFloor = numApartments/numFloors;
-	numShafts = ceil(unitsPerFloor/6);
+
+
+/***** CALCULATE NUMBER OF ELEVATORS - RESIDENTIAL BUILDING *****/
+var numElevatorsResidential = function() {
+	var elevators = 0;
+	var numColumns = 0;
+	var apartments = parseInt($("#numApartmentsResidential").val());
+	var floors = parseInt($("#numFloorsResidential").val());
+	var basements = parseInt($("#numBasementsResidential").val());
+	var averageDoorsPerFloor = Math.ceil(apartments / (floors - basements));
+
+	elevators = Math.ceil(averageDoorsPerFloor / 6);
+	if (floors > 20) {
+		numColumns = Math.ceil(floors / 20);
+		elevators = elevators * numColumns;
+	}
+
+	$("#calculatedNumOfElevators").text(elevators);	
+	numElevators = elevators;
 }
+
+
+
+var 
+
+
+
+/***** RADIO BUTTONS  - SHOW & HIDE FORMS *****/
+var onChangeBuildingType = function () {
+	var optionName = this.id;
+	optionName = optionName.replace("Radio", "Form");
+	$(".hideForm").hide();
+	$("#" + optionName).show();
+};
+
+$("input[name=typeOfBuilding]").on("change", onChangeBuildingType); //calculatePriceBytype - ADD THIS PARAMETER??
+
+$(document).ready(function () {
+	$("#residentialRadio").change();
+});
+
+
+
+
+
+
+
+
+// $("#termsAndConditions").click(function(){
+// 	var str = "I accept all risks using elevators";
+// 	alert(str);
+// });
