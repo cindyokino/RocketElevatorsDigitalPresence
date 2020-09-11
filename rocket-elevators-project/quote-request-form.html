@@ -196,221 +196,225 @@
 
 
 							<form onsubmit="return false">
-							<fieldset>
-								<!-- Type of building -->
-								<legend>Type of building</legend>
-								<div class="row" id="radioButtons">
-									<div class="form-check-inline" style="margin-left:15px">
-										<input type="radio" class="form-check-input" name="typeOfBuilding" id="residentialRadio" checked> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
-										<label class="form-check-label" for="residentialRadio">Residential</label>
-									</div>									
-									<div class="form-check-inline" style="margin-left:50px">
-										<input type="radio" class="form-check-input" name="typeOfBuilding" id="commercialRadio">
-										<label class="form-check-label" for="commercialRadio">Commercial</label>
-									</div>
-									<div class="form-check-inline" style="margin-left:50px">
-										<input type="radio" class="form-check-input" name="typeOfBuilding" id="corporateRadio">
-										<label class="form-check-label" for="corporateRadio">Corporate</label>
-									</div>
-									<div class="form-check-inline" style="margin-left:50px">
-										<input type="radio" class="form-check-input" name="typeOfBuilding" id="hybridRadio">
-										<label class="form-check-label" for="hybridRadio">Hybrid</label>
-									</div>
-								</div> 
-							</fieldset> <!-- /Type of building -->
+								<fieldset>
+									<!-- Type of building -->
+									<legend>Type of building</legend>
+									<div class="row" id="radioButtons">
+										<div class="form-check-inline" style="margin-left:15px">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" id="residentialRadio" checked> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
+											<label class="form-check-label" for="residentialRadio">Residential</label>
+										</div>									
+										<div class="form-check-inline" style="margin-left:50px">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" id="commercialRadio">
+											<label class="form-check-label" for="commercialRadio">Commercial</label>
+										</div>
+										<div class="form-check-inline" style="margin-left:50px">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" id="corporateRadio">
+											<label class="form-check-label" for="corporateRadio">Corporate</label>
+										</div>
+										<div class="form-check-inline" style="margin-left:50px">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" id="hybridRadio">
+											<label class="form-check-label" for="hybridRadio">Hybrid</label>
+										</div>
+									</div> 
+								</fieldset> <!-- /Type of building -->
 
 							
-							<!-- Residential Building Form -->
-							<div id="residentialForm" class="container hideForm">
+								<!-- Residential Building Form -->
+								<div id="residentialForm" class="container hideForm">
+									<fieldset>
+										<legend>Residential building</legend>
+										<div class="form-group row col-md-6">
+											<label for="numApartmentsResidential" class="col-sm-8 col-form-label">Number of apartments: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numApartmentsResidential">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numFloorsResidential" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numFloorsResidential">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numBasementsResidential" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numBasementsResidential">
+											</div>
+										</div>
+									</fieldset>
+								</div> <!-- /Residential Building Form -->
+
+
+								<!-- Commercial Building Form -->
+								<div id="commercialForm" class="container hideForm">
+									<fieldset>
+										<legend>Commercial building</legend>
+										<div class="form-group row col-md-6">
+											<label for="numBusinessesCommercial" class="col-sm-8 col-form-label">Number of businesses:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numBusinessesCommercial">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of floors:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numFloorsCommercial">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numBasementsCommercial" class="col-sm-8 col-form-label">Number of basements:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numBasementsCommercial">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numParkingCommercial" class="col-sm-8 col-form-label">Number of parkings:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numParkingCommercial">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numCagesCommercial" class="col-sm-8 col-form-label">Number of elevators: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numCagesCommercial">
+											</div>
+										</div>										
+									</fieldset>
+								</div> <!-- /Commercial Building Form -->
+
+
+								<!-- Corporate Building Form -->
+								<div id="corporateForm" class="container hideForm">
+									<fieldset>
+										<legend>Corporate building</legend>
+										<div class="form-group row col-md-6">
+											<label for="numCompaniesCorporate" class="col-sm-8 col-form-label">Number of companies:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numCompaniesCorporate">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numFloorsCorporate" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numFloorsCorporate">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numBasementsCorporate" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numBasementsCorporate">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numParkingCorporate" class="col-sm-8 col-form-label">Number of parkings:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numParkingCorporate">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label">Maximum occupants per
+												floor: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numOccupantsFloorCorporate">
+											</div>
+										</div>
+									</fieldset>
+								</div> <!-- /Corporate Building Form -->
+
+
+								<!-- Hybrid Building Form -->
+								<div id="hybridForm" class="container hideForm">
+									<fieldset>
+										<legend>Hybrid building</legend>
+										<div class="form-group row col-md-6">
+											<label for="numBusinessesHybrid" class="col-sm-8 col-form-label">Number of businesses:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numBusinessesHybrid">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numFloorsHybrid" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numFloorsHybrid">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numBasementsHybrid" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numBasementsHybrid">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numParkingHybrid" class="col-sm-8 col-form-label">Number of parkings:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numParkingHybrid">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label">Maximum occupants per
+												floor: <span class="blueColor">*</span></label>
+											<div class="col-md-4">
+												<input required type="number" class="form-control" id="numOccupantsFloorHybrid">
+											</div>
+										</div>
+										<div class="form-group row col-md-6">
+											<label for="numOHoursActivityHybrid" class="col-sm-8 col-form-label">Number of hours of activity of the
+												building:</label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" id="numOHoursActivityHybrid" min="0" max="24">
+											</div>
+										</div>
+									</fieldset>
+								</div> <!-- /Hybrid Building Form -->
+								
+
+								<!-- Select a product -->
 								<fieldset>
-									<legend>Residential building</legend>
-									<div class="form-group row col-md-6">
-										<label for="numApartmentsResidential" class="col-sm-8 col-form-label">Number of apartments:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numApartmentsResidential">
+									<legend>Select a product:</legend>
+									<div class="row" id="radioButtonsLine">
+										<div class="form-check-inline" style="margin-left:15px">
+											<input type="radio" class="form-check-input" name="elevatorLine" id="standardLine"> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
+											<label class="form-check-label" for="standardLine">Standard</label>
+										</div>									
+										<div class="form-check-inline" style="margin-left:50px">
+											<input type="radio" class="form-check-input" name="elevatorLine" id="premiumLine">
+											<label class="form-check-label" for="premiumLine">Premium</label>
 										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numFloorsResidential" class="col-sm-8 col-form-label">Total number of floors:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numFloorsResidential">
+										<div class="form-check-inline" style="margin-left:50px">
+											<input type="radio" class="form-check-input" name="elevatorLine" id="exceliumLine">
+											<label class="form-check-label" for="exceliumLine">Excelium</label>
 										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numBasementsResidential" class="col-sm-8 col-form-label">Number of basements:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBasementsResidential">
-										</div>
-									</div>
-								</fieldset>
-							</div> <!-- /Residential Building Form -->
+									</div> 
+								</fieldset> <!-- /Select a product-->	
 
 
-							<!-- Commercial Building Form -->
-							<div id="commercialForm" class="container hideForm">
-								<fieldset>
-									<legend>Commercial building</legend>
-									<div class="form-group row col-md-6">
-										<label for="numBusinessesCommercial" class="col-sm-8 col-form-label">Number of businesses:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numBusinessesCommercial">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of floors:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numFloorsCommercial">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numBasementsCommercial" class="col-sm-8 col-form-label">Number of basements:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numBasementsCommercial">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numParkingCommercial" class="col-sm-8 col-form-label">Number of parkings:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numParkingCommercial">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numCagesCommercial" class="col-sm-8 col-form-label">Number of elevators:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numCagesCommercial">
-										</div>
-									</div>
-								</fieldset>
-							</div> <!-- /Commercial Building Form -->
-
-
-							<!-- Corporate Building Form -->
-							<div id="corporateForm" class="container hideForm">
-								<fieldset>
-									<legend>Corporate building</legend>
-									<div class="form-group row col-md-6">
-										<label for="numCompaniesCorporate" class="col-sm-8 col-form-label">Number of companies:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numCompaniesCorporate">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numFloorsCorporate" class="col-sm-8 col-form-label">Total number of floors:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numFloorsCorporate">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numBasementsCorporate" class="col-sm-8 col-form-label">Number of basements:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBasementsCorporate">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numParkingCorporate" class="col-sm-8 col-form-label">Number of parkings:</label>
-										<div class="col-md-4">
-											<input type="number" class="form-control" id="numParkingCorporate">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label">Maximum number of occupants per
-											floor:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numOccupantsFloorCorporate">
-										</div>
-									</div>
-								</fieldset>
-							</div> <!-- /Corporate Building Form -->
-
-
-							<!-- Hybrid Building Form -->
-							<div id="hybridForm" class="container hideForm">
-								<fieldset>
-									<legend>Hybrid building</legend>
-									<div class="form-group row col-md-6">
-										<label for="numBusinessesHybrid" class="col-sm-8 col-form-label">Number of businesses:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBusinessesHybrid">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numFloorsHybrid" class="col-sm-8 col-form-label">Total number of floors:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numFloorsHybrid">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numBasementsHybrid" class="col-sm-8 col-form-label">Number of basements:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numBasementsHybrid">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numParkingHybrid" class="col-sm-8 col-form-label">Number of parkings:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numParkingHybrid">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label">Maximum number of occupants per
-											floor:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numOccupantsFloorHybrid">
-										</div>
-									</div>
-									<div class="form-group row col-md-6">
-										<label for="numOHoursActivityHybrid" class="col-sm-8 col-form-label">Number of hours of activity of the
-											building:</label>
-										<div class="col-md-4">
-											<input required type="number" class="form-control" id="numOHoursActivityHybrid">
-										</div>
-									</div>
-								</fieldset>
-							</div> <!-- /Hybrid Building Form -->
-							
-
-							<!-- Select a product -->
-							<fieldset>
-								<legend>Select a product:</legend>
-								<div class="row" id="radioButtonsLine">
-									<div class="form-check-inline" style="margin-left:15px">
-										<input type="radio" class="form-check-input" name="elevatorLine" id="standardLine"> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
-										<label class="form-check-label" for="standardLine">Standard</label>
-									</div>									
-									<div class="form-check-inline" style="margin-left:50px">
-										<input type="radio" class="form-check-input" name="elevatorLine" id="premiumLine">
-										<label class="form-check-label" for="premiumLine">Premium</label>
-									</div>
-									<div class="form-check-inline" style="margin-left:50px">
-										<input type="radio" class="form-check-input" name="elevatorLine" id="exceliumLine">
-										<label class="form-check-label" for="exceliumLine">Excelium</label>
-									</div>
-								</div> 
-							</fieldset> <!-- /Select a product-->	
-
-
-							<!-- Form button -->
-							<div class="row">
+							<!-- Form buttons -->
+							<div id="residentialButton" class="row hideForm">
 								<div class="col-md-12">
 									<button onclick="numElevatorsResidential()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
-							</div> <!-- /Form button -->
+							</div>
 
-							<!-- Form button -->
-							<div class="row">
+							<div id="commercialButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsCommerciall()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsCommercial()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
-							</div> <!-- /Form button -->
+							</div>
 
-							<!-- Form button -->
-							<div class="row">
+							<div id="corporateButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsCorporateHybrid()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsCorporate()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
-							</div> <!-- /Form button -->
-							</form>			
+							</div>
 
+							<div id="hybridButton" class="row hideForm">
+								<div class="col-md-12">
+									<button onclick="numElevatorsHybrid()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+								</div>
+							</div> <!-- /Form buttons -->
+
+						</form>		
 
 						</div>
 					</div>
@@ -661,9 +665,6 @@
 		<script src="assets/js/scripts.js"></script>
 
 		<script src="assets/js/quote-form.js"></script>
-
-		<!-- PAGELEVEL SCRIPTS -->
-		<script src="assets/js/contact.js"></script>
 
 
 	</body>
