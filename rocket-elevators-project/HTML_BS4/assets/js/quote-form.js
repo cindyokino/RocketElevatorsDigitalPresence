@@ -20,7 +20,7 @@ var priceInstallation = 0;
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - RESIDENTIAL BUILDING *****/
-var numElevatorsResidential = function() {
+var numElevatorsResidential = function () {
 	var elevators = 0;
 	var numColumns = 0;
 	var apartments = parseInt($("#numApartmentsResidential").val());
@@ -36,15 +36,40 @@ var numElevatorsResidential = function() {
 
 	$("#calculatedNumOfElevators").text(elevators);	
 	numElevators = elevators;
-}
+};
 
 
 
-var 
+// /***** CALCULATE NUMBER OF ELEVATORS - COMMERCIAL BUILDING *****/
+// var numElevatorsCommercial = function () {
+
+// };
 
 
 
-/***** RADIO BUTTONS  - SHOW & HIDE FORMS *****/
+// /***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING *****/
+// var numElevatorsCorporate = funtion () {
+
+// }
+
+
+
+// /***** CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING *****/
+// var numElevatorsHybrid = funtion () {
+	
+// }
+
+
+
+// /***** CALCULATE PRICE BY TYPE *****/
+// var calculatePriceBytype = function () {
+// 	var optionName = this.id;
+// 	optionName = optionName.replace("Radio", "Form");
+// }
+
+
+
+/***** RADIO BUTTONS - SHOW & HIDE FORMS *****/
 var onChangeBuildingType = function () {
 	var optionName = this.id;
 	optionName = optionName.replace("Radio", "Form");
