@@ -201,7 +201,7 @@
 									<legend>Type of building</legend>
 									<div class="row" id="radioButtons">
 										<div class="form-check-inline" style="margin-left:15px">
-											<input type="radio" class="form-check-input" name="typeOfBuilding" id="residentialRadio" checked> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
+											<input type="radio" class="form-check-input" name="typeOfBuilding" id="residentialRadio" checked> 
 											<label class="form-check-label" for="residentialRadio">Residential</label>
 										</div>									
 										<div class="form-check-inline" style="margin-left:50px">
@@ -227,19 +227,19 @@
 										<div class="form-group row col-md-6">
 											<label for="numApartmentsResidential" class="col-sm-8 col-form-label">Number of apartments: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numApartmentsResidential">
+												<input required type="number" onchange="numElevatorsResidential()" class="form-control" id="numApartmentsResidential">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
 											<label for="numFloorsResidential" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numFloorsResidential">
+												<input required type="number" onchange="numElevatorsResidential()" class="form-control" id="numFloorsResidential" min="1">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
 											<label for="numBasementsResidential" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numBasementsResidential">
+												<input required type="number" onchange="numElevatorsResidential()" class="form-control" id="numBasementsResidential">
 											</div>
 										</div>
 									</fieldset>
@@ -259,7 +259,7 @@
 										<div class="form-group row col-md-6">
 											<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of floors:</label>
 											<div class="col-md-4">
-												<input type="number" class="form-control" id="numFloorsCommercial">
+												<input type="number" class="form-control" id="numFloorsCommercial" min="1">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
@@ -277,7 +277,7 @@
 										<div class="form-group row col-md-6">
 											<label for="numCagesCommercial" class="col-sm-8 col-form-label">Number of elevators: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numCagesCommercial">
+												<input required type="number" onchange="numElevatorsCommercial()" class="form-control" id="numCagesCommercial">
 											</div>
 										</div>										
 									</fieldset>
@@ -297,13 +297,13 @@
 										<div class="form-group row col-md-6">
 											<label for="numFloorsCorporate" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numFloorsCorporate">
+												<input required type="number" onchange="numElevatorsCorporate()" class="form-control" id="numFloorsCorporate" min="1">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
 											<label for="numBasementsCorporate" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numBasementsCorporate">
+												<input required type="number" onchange="numElevatorsCorporate()" class="form-control" id="numBasementsCorporate">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
@@ -316,7 +316,7 @@
 											<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label">Maximum occupants per
 												floor: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numOccupantsFloorCorporate">
+												<input required type="number" onchange="numElevatorsCorporate()" class="form-control" id="numOccupantsFloorCorporate">
 											</div>
 										</div>
 									</fieldset>
@@ -336,13 +336,13 @@
 										<div class="form-group row col-md-6">
 											<label for="numFloorsHybrid" class="col-sm-8 col-form-label">Total number of floors: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numFloorsHybrid">
+												<input required type="number" onchange="numElevatorsHybrid()" class="form-control" id="numFloorsHybrid" min="1">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
 											<label for="numBasementsHybrid" class="col-sm-8 col-form-label">Number of basements: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numBasementsHybrid">
+												<input required type="number" onchange="numElevatorsHybrid()" class="form-control" id="numBasementsHybrid">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
@@ -355,7 +355,7 @@
 											<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label">Maximum occupants per
 												floor: <span class="blueColor">*</span></label>
 											<div class="col-md-4">
-												<input required type="number" class="form-control" id="numOccupantsFloorHybrid">
+												<input required type="number" onchange="numElevatorsHybrid()" class="form-control" id="numOccupantsFloorHybrid">
 											</div>
 										</div>
 										<div class="form-group row col-md-6">
@@ -374,15 +374,15 @@
 									<legend>Select a product:</legend>
 									<div class="row" id="radioButtonsLine">
 										<div class="form-check-inline" style="margin-left:15px">
-											<input type="radio" class="form-check-input" name="elevatorLine" id="standardLine"> <!-- CREATE FUNCTIONS FOR EACH INPUT onclick="showFormXXX()" --> 
+											<input type="radio" class="form-check-input" name="productLine" id="standardLine" checked>
 											<label class="form-check-label" for="standardLine">Standard</label>
 										</div>									
 										<div class="form-check-inline" style="margin-left:50px">
-											<input type="radio" class="form-check-input" name="elevatorLine" id="premiumLine">
+											<input type="radio" class="form-check-input" name="productLine" id="premiumLine">
 											<label class="form-check-label" for="premiumLine">Premium</label>
 										</div>
 										<div class="form-check-inline" style="margin-left:50px">
-											<input type="radio" class="form-check-input" name="elevatorLine" id="exceliumLine">
+											<input type="radio" class="form-check-input" name="productLine" id="exceliumLine">
 											<label class="form-check-label" for="exceliumLine">Excelium</label>
 										</div>
 									</div> 
@@ -429,19 +429,19 @@
 						</span>
 					</div> <!-- /Recommended number of elevators -->
 
-					<!-- Price of equipments -->
+					<!-- Unit price elevators -->
 					<div class="col-md-4 results">
 						<span class="font-lato fs-20">
-							Price of the equipments: </br><span class="blueForm">$</span>
-							<span id="calculatedPriceElevators" class="blueForm"><strong> 0 </strong></span>
+							Unit price for <span id="chosenLine">standard</span> line: </br>
+							<span id="unitPrice" class="blueForm"><strong> $0.00 </strong></span>
 						</span>
 					</div> <!-- /Price of equipments -->
 
 					<!-- Estimated cost of installation -->
 					<div class="col-md-4 results">
 						<span class="font-lato fs-20">
-							Estimated cost of installation: </br><span class="blueForm">$</span>
-							<span id="calculatedPriceInstallation" class="blueForm"><strong> 0 </strong></span>
+							Estimated cost of installation: </br>
+							<span id="feeCost" class="blueForm"><strong> $0.00 </strong></span>
 						</span>
 					</div> <!-- /Estimated cost of installation -->
 					</div>
@@ -449,8 +449,8 @@
 					<!-- TOTAL PRICE -->
 					<div id="totalPrice">
 						<span class="font-lato fs-40">
-							Total price: <span class="blueFormTotal">$</span> 
-							<span id="calculatedTotalPrice"><strong> 0 </strong></span>
+							Total price: 
+							<span id="calculatedTotalPrice"><strong>  $0.00 </strong></span>
 						</span>
 					</div> <!-- /TOTAL PRICE -->
 					
