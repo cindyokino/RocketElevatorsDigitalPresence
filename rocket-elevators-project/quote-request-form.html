@@ -25,6 +25,9 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+		<!-- Always get the latest version -->
+<!-- Not recommended for production sites! -->
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 	</head>
 
 	<!--
@@ -173,7 +176,7 @@
 
 
 			<!-- QUOTE FORM -->
-			<section id="quote-form">
+			<section id="quote-form-section">
 				<div class="container">
 
 					<header class="text-center mb-60">
@@ -195,25 +198,25 @@
 							</div><!-- /Alert Success -->		
 
 
-							<form onsubmit="return false">
+							<form id="quoteForm" onsubmit="return false">
 								<fieldset>
 									<!-- Type of building -->
 									<legend>Type of building</legend>
 									<div class="row" id="radioButtons">
 										<div class="form-check-inline" style="margin-left:15px">
-											<input type="radio" class="form-check-input" name="typeOfBuilding" id="residentialRadio" checked> 
+											<input type="radio" class="form-check-input" name="typeOfBuilding" value="residential" id="residentialRadio" checked> 
 											<label class="form-check-label" for="residentialRadio">Residential</label>
 										</div>									
 										<div class="form-check-inline" style="margin-left:50px">
-											<input type="radio" class="form-check-input" name="typeOfBuilding" id="commercialRadio">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" value="commercial" id="commercialRadio">
 											<label class="form-check-label" for="commercialRadio">Commercial</label>
 										</div>
 										<div class="form-check-inline" style="margin-left:50px">
-											<input type="radio" class="form-check-input" name="typeOfBuilding" id="corporateRadio">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" value="corporate" id="corporateRadio">
 											<label class="form-check-label" for="corporateRadio">Corporate</label>
 										</div>
 										<div class="form-check-inline" style="margin-left:50px">
-											<input type="radio" class="form-check-input" name="typeOfBuilding" id="hybridRadio">
+											<input type="radio" class="form-check-input" name="typeOfBuilding" value="hybrid" id="hybridRadio">
 											<label class="form-check-label" for="hybridRadio">Hybrid</label>
 										</div>
 									</div> 
@@ -374,7 +377,7 @@
 									<legend>Select a product:</legend>
 									<div class="row" id="radioButtonsLine">
 										<div class="form-check-inline" style="margin-left:15px">
-											<input type="radio" class="form-check-input" name="productLine" id="standardLine">
+											<input type="radio" class="form-check-input" name="productLine" id="standardLine" checked>
 											<label class="form-check-label" for="standardLine">Standard</label>
 										</div>									
 										<div class="form-check-inline" style="margin-left:50px">
@@ -392,25 +395,25 @@
 							<!-- Form buttons -->
 							<div id="residentialButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsResidential()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsResidential(); onChangeProductLine()" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
 							</div>
 
 							<div id="commercialButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsCommercial()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsCommercial(); onChangeProductLine()" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
 							</div>
 
 							<div id="corporateButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsCorporate()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsCorporate(); onChangeProductLine()" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
 							</div>
 
 							<div id="hybridButton" class="row hideForm">
 								<div class="col-md-12">
-									<button onclick="numElevatorsHybrid()" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
+									<button onclick="numElevatorsHybrid(); onChangeProductLine()" class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
 							</div> <!-- /Form buttons -->
 

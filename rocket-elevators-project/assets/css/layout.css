@@ -67,7 +67,7 @@
 	color:#004786;
 }
 
-#quote-form {
+#quote-form-section {
 	padding-bottom: 20px;
 	background-color: #eeeeee;
 }
@@ -126,6 +126,10 @@
 }
 
 #chosenLine {
+	font-weight: 500;
+}
+
+#calculatedTotalPrice {
 	font-weight: 500;
 }
 
