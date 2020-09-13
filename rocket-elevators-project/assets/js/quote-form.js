@@ -152,60 +152,24 @@ var formatter = new Intl.NumberFormat(undefined, {
 
 
 //========================================================================================================================================
-// /***** CALCULATE PRICES *****/
-// var calculatePrices = function () {
-	// 	priceElevators = numElevators * optionPrice;
-	// 	priceInstallation = priceElevators * (optionFee / 100);
-	// 	totalPrice = priceElevators + priceInstallation;
-// }
-
-/***** CALCULATE FEES *****/
-
-/***** CALCULATE TOTAL PRICES *****/
-
 /***** CALCULATE PRICES STANDARD *****/
-var standardCalculedPrices = function () {
+var standardCalculetedPrices = function () {
 	priceElevators = numElevators * standardPrice;
 	priceInstallation = price * (standardFee / 100);
 	totalPrice = price + fees;
 
-	// $("#feeCost").text(priceInstallation);
-	// $("#calculatedTotalPrice").text(totalPrice);
+	$("#feeCost").text(formatter.format(priceInstallation));
+	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
 };
 
-// /***** CALCULATE PRICES STANDARD *****/
+// /***** CALCULATE PRICES PREMIUM *****/
 // var premiumCalculedPrices = function () {
 // };
 
-// /***** CALCULATE PRICES STANDARD *****/
+// /***** CALCULATE PRICES EXCELIUM *****/
 // var exceliumCalculedPrices = function () {
 // };
 
-
-//==============================================================================================================================
-// /***** CALCULATE PRICE BY LINE OF PRODUCT SELECTED *****/
-// var onChangeProductLine = function () {
-// 	// priceElevators = 0;
-// 	// priceInstallation = 0;
-// 	// totalPrice = 0;
-// 	// $("#feeCost").text(priceInstallation);
-// 	// $("#calculatedTotalPrice").text(totalPrice);
-
-// 	var optionName = this.id;
-// 	optionName = optionName.replace("Line", "");
-
-// 	var optionPrice = (optionName + "Price");
-// 	var optionFee = optionName + "Fee";
-
-// 	// priceElevators	= numElevators * optionPrice;
-// 	// priceInstallation = priceElevators * (optionFee / 100);
-// 	// totalPrice = priceElevators + priceInstallation;
-
-// 	standardCalculedPrices(optionPrice, optionFee);
-
-// 	$("#feeCost").text(priceInstallation);
-// 	$("#calculatedTotalPrice").text(totalPrice);
-// };
 //==============================================================================================================================
 /***** CALCULATE PRICE BY LINE OF PRODUCT SELECTED *****/
 var onChangeProductLine = function () {
@@ -215,26 +179,41 @@ var onChangeProductLine = function () {
 	$("#feeCost").text(formatter.format(priceInstallation));
 	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
 
-	var optionName = this.id;
-	optionName = optionName.replace("Line", "");
-	var optionPrice = optionName + "Price";
-	var optionFee = optionName + "Fee";
 
-	priceElevators	= numElevators * optionPrice;
-	calculatedFee = priceElevators * (optionFee / 100);
-	totalPrice = priceElevators + priceInstallation;
+	// $("input[name=productLine]").click(function() {
+	// 	if ($('#standardLine').is(':checked')) { 
+	// 		$("#unitPrice").text(formatter.format(standardPrice)); 
+	// 	}
+	// 	else if ($('#premiumLine').is(':checked')) { 
+	// 		$("#unitPrice").text(formatter.format(premiumPrice)); 
+	// 	}
+	// 	else {
+	// 		$("#unitPrice").text(formatter.format(exceliumPrice)); 
+	// 	}
+	//  });
 
-	if ($("standardLine").checked) {
-		standardCalculedPrices();
-	}
+	$("input[name=productLine]").click(function() {
+		if ($('#standardLine').checked) {
+			// standardCalculetedPrices();
+			$("#unitPrice").text(formatter.format(standardPrice));
+		} 
+		else if ($("#premiumLine").checked) {
+			// premiumCalculetedPrices();
+			$("#unitPrice").text(formatter.format(premiumPrice)); 
+		} 
+		else {
+			// exceliumCalculetedPrices();
+			$("#unitPrice").text(formatter.format(exceliumPrice)); 
+		}
+	});
 
-	$("#chosenLine").text(optionName);
-	$("#unitPrice").text(formatter.format(optionPrice));
-	$("#feeCost").text(formatter.format(calculatedFee));
-	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
+	// $("#chosenLine").text(optionName);
+	// $("#unitPrice").text(formatter.format(optionPrice));
+	// $("#feeCost").text(formatter.format(priceInstallation));
+	// $("#calculatedTotalPrice").text(formatter.format(totalPrice));
 };
-//==============================================================================================================================
 
+//==============================================================================================================================
 
 
 
