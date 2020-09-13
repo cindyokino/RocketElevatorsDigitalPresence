@@ -78,7 +78,7 @@ var numElevatorsResidential = function () {
 	|| isInvalidInput("#numFloorsResidential")
 	|| isInvalidInput("#numBasementsResidential")) {
 		return false;
-	}
+	}	
 
 	var elevators = 0;
 	var numColumns = 0;	
@@ -86,6 +86,10 @@ var numElevatorsResidential = function () {
 	var floors = parseInt($("#numFloorsResidential").val());
 	var basements = parseInt($("#numBasementsResidential").val());
 	var averageDoorsPerFloor = Math.ceil(apartments / (floors - basements));
+
+	if (floors === basements) {
+		alert("Please contact us for more details.\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of floors and basements are the same our specialist will give you the best option.");
+	}
 
 	elevators = Math.ceil(averageDoorsPerFloor / 6);
 	if (floors > 20) {
@@ -95,10 +99,7 @@ var numElevatorsResidential = function () {
 
 	$("#calculatedNumOfElevators").text(elevators);	
 	numElevators = elevators;
-
-	// onChangeProductLine();
 };
-
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - COMMERCIAL BUILDING *****/
@@ -112,15 +113,11 @@ var numElevatorsCommercial = function () {
 
 	$("#calculatedNumOfElevators").text(elevators);	
 	numElevators = elevators;
-
-	// onChangeProductLine();
-	// $(":button").on("click", onChangeProductLine);
 };
 
 
-
-/***** CALCULATE NUMBER OF ELEVATORS - CORPORATE & HYBRID BUILDINGS *****/
-var numElevatorsCorporateAndHybrid = function () { 
+/***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING *****/
+var numElevatorsCorporate = function () { 
 	if (isInvalidInput("#numFloorsCorporate")
 	|| isInvalidInput("#numBasementsCorporate")
 	|| isInvalidInput("#numOccupantsFloorCorporate")) {
@@ -150,17 +147,33 @@ var numElevatorsCorporateAndHybrid = function () {
 };
 
 
+/***** CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING *****/
+var numElevatorsHybrid= function () { 
+	if (isInvalidInput("#numFloorsHybrid")
+	|| isInvalidInput("#numBasementsHybrid")
+	|| isInvalidInput("#numOccupantsFloorHybrid")) {
+		return false;
+	}
 
-/***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING - call function numElevatorsCorporateAndHybrid() *****/
-var numElevatorsCorporate = function () { 
-	numElevatorsCorporateAndHybrid();
-};
+	var elevators = 0;
+	var numColumns = 0;	
+	var numberElevatorsPerColumn = 0;
+	var companies = parseInt($("#numCompaniesHybrid").val());
+	var floors = parseInt($("#numFloorsHybrid").val());
+	var basements = parseInt($("#numBasementsHybrid").val());
+	var parkings = parseInt($("#numParkingHybrid").val());
+	var occupants = parseInt($("#numOccupantsFloorHybrid").val());
 
+	var totalOccupants = occupants * floors;
+	elevators = Math.ceil(totalOccupants / 1000);
+	numColumns = Math.ceil(floors / 20);
+	numberElevatorsPerColumn = Math.ceil(elevators / numColumns);
 
+	elevatorsPerColumn = Math.ceil(elevators / numColumns);
+	elevatorsTotal = Math.ceil(elevatorsPerColumn * numColumns);
 
-/***** CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING  - call function numElevatorsCorporateAndHybrid() *****/
-var numElevatorsHybrid = function () {
-	numElevatorsCorporateAndHybrid();
+	$("#calculatedNumOfElevators").text(elevatorsTotal);	
+	numElevators = elevatorsTotal;
 };
 
 
@@ -176,24 +189,25 @@ var onChangeBuildingTypeform = function () {
 	$("#" + optionNameForm).show();
 	$("#" + optionNameButton).show();
 
+	// Reset the values when change the building type, wait to send on click button or press enter
 	numElevators = 0;
-
+	priceInstallation = 0;
+	totalPrice = 0;
 	$("#calculatedNumOfElevators").text(numElevators);
+	$("#feeCost").text(formatter.format(priceInstallation));
+	$("#calculatedTotalPrice").text(formatter.format(totalPrice));	
 };
 
 
-//========================================================================================================================================
-/***** FORMAT MONEY - JAVASCRIPT NUMBER FORMATTER *****/
+
+/***** FORMAT MONEY - JAVASCRIPT NUMBER FORMATTER eg.:(formater.format(value) *****/ 
 var formatter = new Intl.NumberFormat(undefined, {
 	style: 'currency',
 	currency: 'USD',
 });
   
-// formatter.format(2500); EXAMPLE
 
-//========================================================================================================================================
-//========================================================================================================================================
-//========================================================================================================================================
+
 /***** CALCULATE PRICES STANDARD *****/
 var standardCalculetedPrices = function () {
 	priceElevators = numElevators * standardPrice;
@@ -205,6 +219,7 @@ var standardCalculetedPrices = function () {
 	$("#feeCost").text(formatter.format(priceInstallation));
 	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
 };
+
 
 // /***** CALCULATE PRICES PREMIUM *****/
 var premiumCalculetedPrices = function () {
@@ -218,6 +233,7 @@ var premiumCalculetedPrices = function () {
 	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
 };
 
+
 // /***** CALCULATE PRICES EXCELIUM *****/
 var exceliumCalculetedPrices = function () {
 	priceElevators = numElevators * exceliumPrice;
@@ -230,29 +246,23 @@ var exceliumCalculetedPrices = function () {
 	$("#calculatedTotalPrice").text(formatter.format(totalPrice));
 };
 
-//==============================================================================================================================
+
+
 /***** CALCULATE PRICE BY LINE OF PRODUCT SELECTED *****/
 var onChangeProductLine = function () {
-
-	$("input[name=productLine]").change(function() {
-		if ($('#standardLine').is(':checked')) { 
-			standardCalculetedPrices();
-		}
-		else if ($('#premiumLine').is(':checked')) { 
-			$("#unitPrice").text(formatter.format(premiumPrice)); 
-			premiumCalculetedPrices();
-		}
-		else {
-			$("#unitPrice").text(formatter.format(exceliumPrice)); 
-			exceliumCalculetedPrices();
-		}
-	});
+	if ($('#standardLine').is(':checked')) { 		
+		$("#unitPrice").text(formatter.format(unitPrice));
+		standardCalculetedPrices();
+	}
+	else if ($('#premiumLine').is(':checked')) { 
+		$("#unitPrice").text(formatter.format(premiumPrice));
+		premiumCalculetedPrices();
+	}
+	else {
+		$("#unitPrice").text(formatter.format(exceliumPrice)); 
+		exceliumCalculetedPrices();
+	}
 };
-
-
-//==============================================================================================================================
-//========================================================================================================================================
-//========================================================================================================================================
 
 
 
@@ -269,7 +279,6 @@ $(document).ready(function () {
 	$("input[name=productLine]").on("change", onChangeProductLine); 
 	$("#standardLine").change();
 });
-onChangeProductLine();
 
 
 //****************** DELETAR SE NAO ARRUMAMR!!! sobre alerts no footer!!
