@@ -144,7 +144,6 @@ var numElevatorsCorporate = function () {
 
 	$("#calculatedNumOfElevators").text(elevatorsTotal);	
 	numElevators = elevatorsTotal;
-	// onChangeProductLine();
 };
 
 
