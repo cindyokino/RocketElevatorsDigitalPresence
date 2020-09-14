@@ -29,28 +29,18 @@
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+		<!-- HEADER AND FOOTER -->
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+		</script>
+		<script>
+			$(function () {
+				$("#footer").load("footer.html");
+			});
+		</script>
 	</head>
 
-	<!--
-		AVAILABLE BODY CLASSES:
-		
-		smoothscroll 			= create a browser smooth scroll
-		enable-animation		= enable WOW animations
-
-		bg-grey					= grey background
-		grain-grey				= grey grain background
-		grain-blue				= blue grain background
-		grain-green				= green grain background
-		grain-blue				= blue grain background
-		grain-orange			= orange grain background
-		grain-yellow			= yellow grain background
-		
-		boxed 					= boxed layout
-		pattern1 ... patern11	= pattern background
-		menu-vertical-hide		= hidden, open on click
-		
-		BACKGROUND IMAGE [together with .boxed class]
-	-->
 	<body class="smoothscroll enable-animation">
 
 		<!-- SLIDE TOP -->
@@ -96,32 +86,6 @@
 		<!-- wrapper -->
 		<div id="wrapper">
 
-			<!-- 
-				AVAILABLE HEADER CLASSES
-
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.b-0 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent b-0"
-			-->
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<!-- TOP NAV -->
@@ -146,13 +110,6 @@
 						-->
 						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
 							<nav class="nav-main">
-
-								<!-- 
-									.nav-onepage
-									Required for onepage navigation links
-									
-									Add .external for an external link!
-								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
 										<a href="index-homepage.html">
@@ -201,37 +158,8 @@
 
 
 			<!-- REVOLUTION SLIDER -->
-			<div class="slider fullwidthbanner-container roundedcorners">				
-
-				<!--
-					Navigation Styles:
-					
-						data-navigationStyle="" theme default navigation
-						
-						data-navigationStyle="preview1"
-						data-navigationStyle="preview2"
-						data-navigationStyle="preview3"
-						data-navigationStyle="preview4"
-						
-					Bottom Shadows
-						data-shadow="1"
-						data-shadow="2"
-						data-shadow="3"
-						
-					Slider Height (do not use on fullscreen mode)
-						data-height="300"
-						data-height="350"
-						data-height="400"
-						data-height="450"
-						data-height="500"
-						data-height="550"
-						data-height="600"
-						data-height="650"
-						data-height="700"
-						data-height="750"
-						data-height="800"
-				-->
-				<div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
+			<div class="slider fullwidthbanner-container roundedcorners">	
+				<div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview4">
 					<ul class="hide">
 					
 						<!-- SLIDE 1 -->
@@ -409,19 +337,19 @@
 
 			<!-- Overview -->
 			<section id="overview">
-				<div class="container text-center">
+				<div class="container">
 					
-					<div class="row text-left">
+					<div class="col-sm-12 row text-left">
 						<h2 class="fw-300"><span>Commercial and Corporate Solutions</span></h2>
 						<p>Whether you need to move a few people a few floors or thousands of people over a hundred floors, thyssenkrupp Elevator has the right solution for your building. No matter your priority, our elevators deliver reliability, shorter ride times and less congestion.	</p>
 						<p>Sustainability is embedded in the strategies, policies and business practices of thyssenkrupp Elevator Americas. We strive to create a culture that fosters greener solutions for every aspect of our business, from daily operations to the materials we use in our products. By implementing the right actions today, we are making a better world for tomorrow.</p>
 
 
-						<div class="col-sm-8">
-							<img src="assets/images/corporate-4.jpg" alt="corporate elevator" style="height: 560px;"/>
+						<div class="col-lg-8">
+							<img src="assets/images/corporate-4.jpg" alt="corporate elevator" style="width: 100%; padding: 0px 0px"/>
 						</div>
 
-						<div class="col-sm-4"> <!-- DESCRIPTION ELEVATOR -->	
+						<div class="col-lg-4"> <!-- DESCRIPTION ELEVATOR -->	
 							<h2 class="fw-300"> <b style="color: gray">Superior, reliable systems for commercial applications </b></h2>
 							<p>No matter your needs, we’re your go-to, expert elevator service provider. Our commercial elevator services include:</p>
 							<div>
@@ -570,21 +498,6 @@
 
 							<h2>Visit Us</h2>
 
-							<!-- 
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							-->	
-
 							<div id="map2" class="h-400">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11194.06354771489!2d-73.5671205!3d45.4594108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x852cd133f4fe32e9!2sCodeBoxx!5e0!3m2!1spt-BR!2sca!4v1599520055878!5m2!1spt-BR!2sca" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 							</div>
@@ -608,66 +521,7 @@
 
 
 			<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
-
-
-					<div class="row">
-
-						<!-- col #1 -->
-						<div class="col-md-8">
-
-							<h3 class="letter-spacing-1">WHY US?</h3>
-
-							<!-- Small Description -->
-							<p>
-								Our elevators are a perfect fit. And so are we.
-								From residential and office buildings to shopping centers, hotels, hospitals, train stations and airports, our passenger and freight elevators deliver
-								increased transport capacity, reduced space requirements, enhanced safety, improved energy efficiency, greater durability and recyclability.
-							</p>
-							<h2>+1 (581) 701-0303</h2>
-						</div>
-						<!-- /col #1 -->
-
-						<!-- col #2 -->
-						<div class="col-md-4">
-							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
-
-							<!-- Newsletter Form -->
-							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
-
-							<form onsubmit="return false" class="validate" action="" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<!-- /Newsletter Form -->
-
-
-						</div>
-						<!-- /col #2 -->
-
-					</div>
-
-
-				</div>
-
-				<div class="copyright">
-					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
-						</ul>
-						Rocket Elevators &copy; 2020
-					</div>
-				</div>
-
-			</footer>
+				<div id="footer"></div> 
 			<!-- /FOOTER -->
 
 		</div>

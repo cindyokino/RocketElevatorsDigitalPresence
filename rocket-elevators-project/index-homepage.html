@@ -30,30 +30,21 @@
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />	
 		
-		<!-- FONT AWESOME	 -->
-		<script src="https://kit.fontawesome.com/c20548da5e.js" crossorigin="anonymous"></script>
+		<!-- FONT AWESOME -->
+		<!-- <script src="https://kit.fontawesome.com/c20548da5e.js" crossorigin="anonymous"></script> -->
+
+		<!-- HEADER AND FOOTER -->
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+			</script>
+		<script>
+			$(function () {
+				$("#footer").load("footer.html");
+			});
+		</script>
+		
 	</head>
 
-	<!--
-		AVAILABLE BODY CLASSES:
-		
-		smoothscroll 			= create a browser smooth scroll
-		enable-animation		= enable WOW animations
-
-		bg-grey					= grey background
-		grain-grey				= grey grain background
-		grain-blue				= blue grain background
-		grain-green				= green grain background
-		grain-blue				= blue grain background
-		grain-orange			= orange grain background
-		grain-yellow			= yellow grain background
-		
-		boxed 					= boxed layout
-		pattern1 ... patern11	= pattern background
-		menu-vertical-hide		= hidden, open on click
-		
-		BACKGROUND IMAGE [together with .boxed class]
-	-->
 	<body class="smoothscroll enable-animation">
 
 		<!-- SLIDE TOP -->
@@ -98,33 +89,6 @@
 
 		<!-- wrapper -->
 		<div id="wrapper">
-
-			<!-- 
-				AVAILABLE HEADER CLASSES
-
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.b-0 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent b-0"
-			-->
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<!-- TOP NAV -->
@@ -204,36 +168,7 @@
 
 
 			<!-- REVOLUTION SLIDER -->
-			<div class="slider fullwidthbanner-container roundedcorners">				
-
-				<!--
-					Navigation Styles:
-					
-						data-navigationStyle="" theme default navigation
-						
-						data-navigationStyle="preview1"
-						data-navigationStyle="preview2"
-						data-navigationStyle="preview3"
-						data-navigationStyle="preview4"
-						
-					Bottom Shadows
-						data-shadow="1"
-						data-shadow="2"
-						data-shadow="3"
-						
-					Slider Height (do not use on fullscreen mode)
-						data-height="300"
-						data-height="350"
-						data-height="400"
-						data-height="450"
-						data-height="500"
-						data-height="550"
-						data-height="600"
-						data-height="650"
-						data-height="700"
-						data-height="750"
-						data-height="800"
-				-->
+			<div class="slider fullwidthbanner-container roundedcorners">
 				<div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
 					<ul class="hide">
 					
@@ -276,7 +211,7 @@
 								Home & commercial elevators are our specialty. Rocket Elevators can rise above your expectations.
 							</div>
 
-							<div class="tp-caption skewfromleft tp-resizeme  un-button-2-lg"
+							<div class="tp-caption skewfromleft tp-resizeme un-button-2-lg"
 								data-x="550"
 								data-y="270" 
 								data-speed="300"
@@ -290,23 +225,8 @@
 
 								style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
 									<a class="btn btn-primary btn-lg" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
-							</div>
-
-							<div class="tp-caption skewfromleft tp-resizeme  un-button-2-lg"
-								data-x="750"
-								data-y="270" 
-								data-speed="500"
-								data-start="2500"
-								data-easing="Power3.easeInOut"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="500"
-								style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
 									<a class="btn btn-default btn-lg" href="quote-request-form.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
 							</div>
-						</li>
 
 						<!-- SLIDE 2 -->
 						<li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Residential">
@@ -477,14 +397,12 @@
 				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
 				<div class="container">
-
 					<div class="text-center">
 						<h2 class="fs-40 fw-300">Elevators at best quality since 1976</h2>
 						<a class="btn btn-default btn-lg" href="quote-request-form.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-primary btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
-
 				</div>
 			</section>
 			<!-- /Parallax -->
@@ -640,7 +558,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-4.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-4.jpg" width="600" height="399" alt="Falkirk Wheel, Scotland">
 									</figure>
 
 									<div class="item-box-desc">
@@ -676,7 +594,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-5.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-5.jpg" width="600" height="399" alt="GG House, Poland">
 									</figure>
 
 									<div class="item-box-desc">
@@ -713,7 +631,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-6.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-6.jpg" width="600" height="399" alt="One World Trade Center, New York, New York">
 									</figure>
 
 									<div class="item-box-desc">
@@ -750,7 +668,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-7.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-7.jpg" width="600" height="399" alt="World Financial Center, New York, New York">
 									</figure>
 
 									<div class="item-box-desc">
@@ -787,7 +705,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-8.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-8.jpg" width="600" height="399" alt="300 New Jersey Avenue, NW, Washington, D.C.">
 									</figure>
 
 									<div class="item-box-desc">
@@ -822,7 +740,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-9.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-9.jpg" width="600" height="399" alt="Ubisoft Montreal Office">
 									</figure>
 
 									<div class="item-box-desc">
@@ -858,7 +776,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-10.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-10.jpg" width="600" height="399" alt="CHUM - Centre hospitalier de l'Université de Montréal">
 									</figure>
 
 									<div class="item-box-desc">
@@ -895,7 +813,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-11.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-11.jpg" width="600" height="399" alt="YUL condos, Montreal">
 									</figure>
 
 									<div class="item-box-desc">
@@ -931,7 +849,7 @@
 											</span>
 										</span>
 
-										<img class="img-fluid img-portfolio" src="assets/images/project-12.jpg" width="600" height="399" alt="">
+										<img class="img-fluid img-portfolio" src="assets/images/project-12.jpg" width="600" height="399" alt="Le Bourbon Condominiums">
 									</figure>
 
 									<div class="item-box-desc">
@@ -967,7 +885,7 @@
 								<img class="rounded" src="assets/images/patrick-thibault.jpeg" alt="patrick-thibault" />
 							</figure>
 							<div class="testimonial-content p-0">
-								<p class="lead">“Smarter is always the answer.” </p>
+								<p class="lead">Going up is always the answer.” </p>
 								<cite>
 									Patrick Thibault
 									<span>Rocket Elevators CEO</span>
@@ -996,7 +914,6 @@
 
 
 
-
 			<!-- News -->
 			<section id="news">
 				<div class="container">
@@ -1005,25 +922,6 @@
 						<h2>News</h2>
 					</div>
 
-					<!-- 
-						controlls-over		= navigation buttons over the image 
-						buttons-autohide 	= navigation buttons visible on mouse hover only
-						
-						data-plugin-options:
-							"singleItem": true
-							"autoPlay": true (or ms. eg: 4000)
-							"navigation": true
-							"pagination": true
-							"items": "4"
-
-						owl-carousel item paddings
-							.owl-padding-0
-							.owl-padding-3
-							.owl-padding-6
-							.owl-padding-10
-							.owl-padding-15
-							.owl-padding-20
-					-->
 					<div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
 						<div class="img-hover"> <!-- News 1 -->
 							<a href="https://themarketchronicles.com/2020/09/07/latest-trendenergy-efficient-elevators-market-growth-segmented-by-application-and-development-forecast-till-period-2020-2025-hitachi-mitsubishi-electric-honeywell-fujitec-kone/">
@@ -1162,7 +1060,7 @@
 							<img class="img-fluid img-client" src="assets/images/client-11.png" alt="mcdonalds canada" />
 						</li>
 						<li class="col-md-2 col-sm-2 col-6">
-							<img class="img-fluid img-client" src="assets/images/client-12.png" alt="" />
+							<img class="img-fluid img-client" src="assets/images/client-12.png" alt="toyota" />
 						</li>
 						
 					</ul>
@@ -1285,22 +1183,7 @@
 						<!-- INFO -->
 						<div class="col-md-4 col-sm-4">
 
-							<h2>Visit Us</h2>
-
-							<!-- 
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							-->	
+							<h2>Visit Us</h2>	
 
 							<div id="map2" class="h-400">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11194.06354771489!2d-73.5671205!3d45.4594108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x852cd133f4fe32e9!2sCodeBoxx!5e0!3m2!1spt-BR!2sca!4v1599520055878!5m2!1spt-BR!2sca" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -1323,69 +1206,8 @@
 			<!-- /CONTACT -->
 
 
-
-
 			<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
-
-
-					<div class="row">
-
-						<!-- col #1 -->
-						<div class="col-md-8">
-
-							<h3 class="letter-spacing-1">WHY US?</h3>
-
-							<!-- Small Description -->
-							<p>
-								Our elevators are a perfect fit. And so are we.
-								From residential and office buildings to shopping centers, hotels, hospitals, train stations and airports, our passenger and freight elevators deliver
-								increased transport capacity, reduced space requirements, enhanced safety, improved energy efficiency, greater durability and recyclability.
-							</p>
-							<h2>+1 (581) 701-0303</h2>
-						</div>
-						<!-- /col #1 -->
-
-						<!-- col #2 -->
-						<div class="col-md-4">
-							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
-
-							<!-- Newsletter Form -->
-							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
-
-							<form onsubmit="return false" class="validate" action="" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<!-- /Newsletter Form -->
-
-
-						</div>
-						<!-- /col #2 -->
-
-					</div>
-
-
-				</div>
-
-				<div class="copyright">
-					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
-						</ul>
-						Rocket Elevators &copy; 2020
-					</div>
-				</div>
-
-			</footer>
+				<div id="footer"></div> 
 			<!-- /FOOTER -->
 
 		</div>

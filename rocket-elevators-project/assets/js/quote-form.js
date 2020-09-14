@@ -89,6 +89,7 @@ var numElevatorsResidential = function () {
 
 	if (floors === basements) {
 		alert("Please contact us for more details.\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of floors and basements are the same our specialist will give you the best option.");
+		return false;
 	}
 
 	elevators = Math.ceil(averageDoorsPerFloor / 6);
