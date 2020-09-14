@@ -30,13 +30,13 @@
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
 
-		<!-- HEADER AND FOOTER -->
+		<!-- CONTACT AND FOOTER -->
 		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			crossorigin="anonymous">
 		</script>
 		<script>
 			$(function () {
-				$("#footer").load("footer.html");
+				$("#addFooter").load("footer.html");
 			});
 		</script>
 	</head>
@@ -383,146 +383,11 @@
 			</a>
 			<!-- /BUTTON CALLOUT -->
 
+			<!-- CONTACT AND FOOTER -->
+			<div id="addFooter"></div> 
+			<!-- /CONTACT AND FOOTER -->
 
 
-
-			<!-- CONTACT -->
-			<section id="contact">
-				<div class="container">
-
-					<header class="text-center mb-60">
-						<h2>Contact Us</h2>
-						<p class="lead font-lato">Come to us and get the best elevators</p>
-						<hr />
-					</header>
-
-
-					<div class="row">
-
-						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
-
-							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>						
-
-							<form onsubmit="return false" action="" method="post" enctype="multipart/form-data">
-								<fieldset>
-									<input type="hidden" name="action" value="contact_send" />
-
-									<div class="row">
-											<div class="col-md-4">
-												<label for="contact:name">Contact Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:business">Business Name </label>
-												<input type="text" value="" class="form-control" name="contact[business]" id="contact:business">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:email">E-mail *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:phone">Phone Number</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-											</div>
-											<div class="col-md-4">
-												<label for="contact:project">Project Name</label>
-												<input type="text" value="" class="form-control" name="contact[project]" id="contact:project">
-											</div>	
-											<div class="col-md-4">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
-													<option value="">--- Select ---</option>
-													<option value="Marketing">Residential</option>
-													<option value="Webdesign">Corporate</option>
-													<option value="Architecture">Others</option>
-												</select>
-											</div>
-									</div>
-									<div class="row">											
-										<div class="col-md-12">
-											<label for="contact:description">Project Description *</label>
-											<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:description">
-										</div>
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
-											</div>
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment</label>
-
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
-												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-
-											</div>
-									</div>
-
-								</fieldset>
-
-								<div class="row">
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-									</div>
-								</div>
-							</form>
-
-							<!-- Alert Success -->
-							<div id="alert_success" class="alert alert-success mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your message successfully sent!
-							</div><!-- /Alert Success -->
-
-							<!-- Alert Failed -->
-							<div id="alert_failed" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>[SMTP] Error!</strong> Internal server error!
-							</div><!-- /Alert Failed -->
-
-							<!-- Alert Mandatory -->
-							<div id="alert_mandatory" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-							</div><!-- /Alert Mandatory -->
-
-						</div>
-						<!-- /FORM -->
-
-
-						<!-- INFO -->
-						<div class="col-md-4 col-sm-4">
-
-							<h2>Visit Us</h2>
-
-							<div id="map2" class="h-400">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11194.06354771489!2d-73.5671205!3d45.4594108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x852cd133f4fe32e9!2sCodeBoxx!5e0!3m2!1spt-BR!2sca!4v1599520055878!5m2!1spt-BR!2sca" width="350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-							</div>
-							<hr/>
-
-							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington St Suite 204	</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">+1 (581) 701-0303</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@rocketelevators.com</a></span>
-							</p>
-
-						</div>
-						<!-- /INFO -->
-
-					</div>
-
-				</div>
-			</section>
-			<!-- /CONTACT -->
-
-
-
-			<!-- FOOTER -->
-				<div id="footer"></div> 
-			<!-- /FOOTER -->
 
 		</div>
 		<!-- /wrapper -->

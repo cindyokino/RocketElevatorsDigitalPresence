@@ -281,8 +281,5 @@ $(document).ready(function () {
 });
 
 
-//****************** DELETAR SE NAO ARRUMAMR!!! sobre alerts no footer!!
-// $("#termsAndConditions").click(function(){  DELETE THIS after implement the footer 
-// 	var str = "I accept all risks using elevators";
-// 	alert(str);
-// });
+
+

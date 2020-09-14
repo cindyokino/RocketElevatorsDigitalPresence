@@ -1,100 +1,308 @@
-<!-- FOOTER -->
-<div class="container">
-    <div class="row">
+<!-- PAGE LEVEL SCRIPTS -->
+<!-- IMPORT send-message.js -->
+<script type="text/javascript">
+/***** CHECK THE INPUT IS INVALID *****/
+var isInvalidInput = function(id) {
+	return !$(id).get(0).checkValidity();
+}
 
-        <!-- col #1 -->
-        <div class="col-md-8">
+var sendMessage = function () {
+	if (isInvalidInput("#contactName")
+	|| isInvalidInput("#contactEmail")
+	|| isInvalidInput("#contactDescription")
+	|| isInvalidInput("#contactMessage")) {
+		alert("Please fill out all the required* fields");	
+		return false;
+	}
+	$("#alert_success").show();
+}
+</script>
+<!--/ PAGE LEVEL SCRIPTS -->
 
-            <h3 class="letter-spacing-1">WHY US?</h3>
 
-            <!-- Small Description -->
-            <p>
-                Our elevators are a perfect fit. And so are we.
-                From residential and office buildings to shopping centers, hotels, hospitals, train stations and
-                airports, our passenger and freight elevators deliver
-                increased transport capacity, reduced space requirements, enhanced safety, improved energy efficiency,
-                greater durability and recyclability.
-            </p>
-            <h2>+1 (581) 701-0303</h2>
-        </div>
-        <!-- /col #1 -->
 
-        <!-- col #2 -->
-        <div class="col-md-4">
-            <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
-            <!-- Newsletter Form -->
-            <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
 
-            <form onsubmit="return false" class="validate" action="" method="post" data-success="Subscribed! Thank you!"
-                data-toastr-position="bottom-right">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="email" id="email" name="email" class="form-control required"
-                        placeholder="Enter your Email">
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="submit">Subscribe</button>
-                    </span>
+        <header class="text-center mb-60">
+            <h2>Contact Us</h2>
+            <p class="lead font-lato">Come to us and get the best elevators</p>
+            <hr />
+        </header>
+
+        <div class="row">
+
+            <!-- FORM -->
+            <div class="col-md-8 col-sm-8">
+
+                <h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
+
+                <form onsubmit="sendMessage(); return false" action="" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <input type="hidden" name="action" value="contact_send" />
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="contact:name">Contact Full Name *</label>
+                                <input required type="text" value="" class="form-control" name="contact[name][required]"
+                                    id="contactName">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact:business">Business Name </label>
+                                <input type="text" value="" class="form-control" name="contact[business]"
+                                    id="contact:business">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact:email">E-mail *</label>
+                                <input required type="email" value="" class="form-control"
+                                    name="contact[email][required]" id="contactEmail">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact:phone">Phone Number</label>
+                                <input type="text" value="" class="form-control" name="contact[phone]"
+                                    id="contact:phone">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact:project">Project Name</label>
+                                <input type="text" value="" class="form-control" name="contact[project]"
+                                    id="contact:project">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact_department">Department</label>
+                                <select class="form-control pointer" name="contact[department]">
+                                    <option value="">--- Select ---</option>
+                                    <option value="Marketing">Residential</option>
+                                    <option value="Webdesign">Corporate</option>
+                                    <option value="Architecture">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="contact:description">Project Description *</label>
+                                <input required type="text" value="" class="form-control"
+                                    name="contact[subject][required]" id="contactDescription">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="contact:message">Message *</label>
+                                <textarea required maxlength="10000" rows="8" class="form-control"
+                                    name="contact[message]" id="contactMessage"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="contact:attachment">File Attachment</label>
+
+                                <!-- custom file upload -->
+                                <input class="custom-file-upload" type="file" id="file" name="contact[attachment]"
+                                    id="contact:attachment" data-btn-text="Select a File" />
+                                <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" id="contactButton"><i class="fa fa-check"></i>
+                                SEND MESSAGE</button>
+                        </div>
+                    </div>
+
+                    <!-- Alert Success -->
+                    <div id="alert_success" class="alert alert-success mb-30 fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Thank You!</strong> Our team will contact you soon!
+                    </div>
+                    <!-- /Alert Success -->
+
+                </form>
+
+            </div>
+            <!-- /FORM -->
+
+
+            <!-- INFO -->
+            <div class="col-md-4 col-sm-4">
+
+                <h2>Visit Us</h2>
+
+                <div id="map2" class="h-400">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11194.06354771489!2d-73.5671205!3d45.4594108!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x852cd133f4fe32e9!2sCodeBoxx!5e0!3m2!1spt-BR!2sca!4v1599520055878!5m2!1spt-BR!2sca"
+                        width="350" height="350" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
                 </div>
-            </form>
-            <!-- /Newsletter Form -->
+                <hr />
 
+                <p>
+                    <span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington
+                        St Suite 204 </span>
+                    <span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a
+                            href="tel:1800-555-1234">+1 (581) 701-0303</a></span>
+                    <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a
+                            href="mailto:mail@yourdomain.com">mail@rocketelevators.com</a></span>
+                </p>
+
+            </div>
+            <!-- /INFO -->
 
         </div>
-        <!-- /col #2 -->
 
     </div>
-</div>
+</section>
+<!-- /CONTACT -->
 
-<div class="copyright">
+<!-- FOOTER -->
+<div id="footer">
     <div class="container">
-        <ul class="float-right m-0 list-inline mobile-block">
-            <!-- <li><a href="#">Terms &amp; Conditions</a></li> -->
-            <!-- Trigger the modal with anchor tag -->
-            <li><a href="#" data-toggle="modal" data-target="#modalTerms">Terms &amp; Conditions</a></li>
-            <li>&bull;</li>
-            <li><a href="#">Privacy</a></li>
-        </ul>
-        Rocket Elevators &copy; 2020
+        <div class="row">
+
+            <!-- col #1 -->
+            <div class="col-md-8">
+
+                <h3 class="letter-spacing-1">WHY US?</h3>
+
+                <!-- Small Description -->
+                <p>
+                    Our elevators are a perfect fit. And so are we.
+                    From residential and office buildings to shopping centers, hotels, hospitals, train stations and
+                    airports, our passenger and freight elevators deliver
+                    increased transport capacity, reduced space requirements, enhanced safety, improved energy
+                    efficiency,
+                    greater durability and recyclability.
+                </p>
+                <h2>+1 (581) 701-0303</h2>
+            </div>
+            <!-- /col #1 -->
+
+            <!-- col #2 -->
+            <div class="col-md-4">
+                <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+                <!-- Newsletter Form -->
+                <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+                <form onsubmit="return false" class="validate" action="" method="post"
+                    data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="email" id="email" name="email" class="form-control required"
+                            placeholder="Enter your Email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /Newsletter Form -->
+
+
+            </div>
+            <!-- /col #2 -->
+
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <ul class="float-right m-0 list-inline mobile-block">
+                <!-- <li><a href="#">Terms &amp; Conditions</a></li> -->
+                <!-- Trigger the modal with anchor tag -->
+                <li><a href="#" data-toggle="modal" data-target="#modalTerms">Terms &amp; Conditions</a></li>
+                <li>&bull;</li>
+                <li><a href="#" data-toggle="modal" data-target="#modalPrivacy">Privacy</a></li>
+            </ul>
+            Rocket Elevators &copy; 2020
+        </div>
     </div>
 </div>
 <!-- /FOOTER -->
 
-<!-- MODAL -->
-<div class="container">
-    <div class="modal fade" id="modalTerms" role="dialog" style="color: black;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" style="color: black; text-align: center;">Terms & Conditions</h4>
-                </div>
-                <div class="modal-body">
+<!-- MODAL TERMS & CONDITIONS -->
+<div class="modal fade" id="modalTerms" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-text" style="text-align: center;">Terms & Conditions</h2>
+            </div>
+            <div class="modal-body modal-text">
 
-                    <p>Agreement between User and <strong>Rocket Elevators</strong>
-                        This website (the “Site”) is provided by <strong>Rocket Elevators</strong>, (hereinafter, “we”, “us”, or “our”)
-                        and is subject to these terms, conditions and notices and
-                        all modifications thereto (the “Terms and Conditions”). “You” and “your” refer to each company,
-                        supplier, or individual that uses this Site. The following Terms and Conditions constitute a
-                        legal agreement.</p>
+                <p>Agreement between User and <strong>Rocket Elevators</strong>
+                    This website (the “Site”) is provided by <strong>Rocket Elevators</strong>, (hereinafter, “we”,
+                    “us”, or “our”)
+                    and is subject to these terms, conditions and notices and
+                    all modifications thereto (the “Terms and Conditions”). “You” and “your” refer to each company,
+                    supplier, or individual that uses this Site. The following Terms and Conditions constitute a
+                    legal agreement.</p>
 
-                    <p>Modifications</p>
-                    <p>These Terms and Conditions, as well as all content on the Site, are subject to change without
-                        notice. Furthermore, <strong>Rocket Elevators</strong> may discontinue or modify any aspect of the Site without
-                        notice or liability.</p>
+                <h3 class="modal-text">Modifications</h3>
+                <p>These Terms and Conditions, as well as all content on the Site, are subject to change without
+                    notice. Furthermore, <strong>Rocket Elevators</strong> may discontinue or modify any aspect of the
+                    Site without
+                    notice or liability.</p>
 
-                    <p>Submissions</p>
-                    <p>Except for personal information provided per the Privacy Statement, any information, material or
-                        communication, including but not limited to feedback, questions, comments, suggestions, ideas,
-                        graphics or computer files of any type, submitted to <strong>Rocket Elevators</strong> is considered non-confidential
-                        and non-proprietary. <strong>Rocket Elevators</strong> is free to use, copy, modify, adapt, publish, translate,
-                        distribute and/or incorporate such into other works for any and all purposes, commercial or
-                        noncommercial.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                <h3 class="modal-text">Submissions</h3>
+                <p>Except for personal information provided per the Privacy Statement, any information, material or
+                    communication, including but not limited to feedback, questions, comments, suggestions, ideas,
+                    graphics or computer files of any type, submitted to <strong>Rocket Elevators</strong> is considered
+                    non-confidential
+                    and non-proprietary. <strong>Rocket Elevators</strong> is free to use, copy, modify, adapt, publish,
+                    translate,
+                    distribute and/or incorporate such into other works for any and all purposes, commercial or
+                    noncommercial.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-<!-- /MODAL -->
+<!-- /MODAL TERMS & CONDITIONS -->
+
+<!-- MODAL PRIVACY -->
+<div class="modal fade" id="modalPrivacy" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-text" style="text-align: center;">Privacy policy</h2>
+                <p class="modal-text" style="text-align: center;">Last Updated: September 16, 2020</p>
+            </div>
+            <div class="modal-body modal-text">
+
+                <p><strong>Rocket Elevators</strong> knows that you care about how your personal
+                    information is used
+                    and shared, an obligation we take seriously. tke has created this privacy policy (ìPrivacy Policyî)
+                    in order to
+                    demonstrate our commitment to you and for you to understand the practices and conduct of tke as it
+                    applies to
+                    information collected about our customers and visitors.</p>
+
+                <h3 class="modal-text">Reservation of Rights</h3>
+                <p><strong>Rocket Elevators</strong> reserves the right to change the terms of this privacy policy at
+                    any time in its
+                    sole discretion
+                    and will post notice of the updated Privacy Policy on our Site so you are always aware of what
+                    Personally Identifiable Information we may collect and how we may use this information. If you have
+                    any questions
+                    about this Privacy Policy or the
+                    practices of this Site, please contact tke at support@rocketelevators.com</p>
+
+                <h3 class="modal-text">Acceptance</h3>
+                <p>By accessing the tke website at www.cindyokino.com, including all related pages ("Site")
+                    and/or services and/or
+                    products provided on the Site or any emails generated from or through the Site (collectively, the
+                    "Service"), you are
+                    accepting the Privacy Policy.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MODAL PRIVACY -->
