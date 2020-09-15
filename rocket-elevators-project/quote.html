@@ -225,11 +225,11 @@
 								<fieldset>
 									<legend>Residential building</legend>
 									<div class="form-group row col-md-6">
-										<label for="numApartmentsResidential" class="col-sm-8 col-form-label">Number of
+										<label for="numApartmentsResidential" class="col-sm-8 col-form-label" min="0">Number of
 											apartments: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" id="numApartmentsResidential">
+												class="form-control" min="0" id="numApartmentsResidential">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -237,7 +237,7 @@
 											of floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" id="numFloorsResidential" min="1">
+												class="form-control" min="0" id="numFloorsResidential">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -245,7 +245,7 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" id="numBasementsResidential">
+												class="form-control" min="0" id="numBasementsResidential">
 										</div>
 									</div>
 								</fieldset>
@@ -260,28 +260,28 @@
 										<label for="numBusinessesCommercial" class="col-sm-8 col-form-label">Number of
 											businesses:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numBusinessesCommercial">
+											<input type="number" class="form-control" min="0" id="numBusinessesCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of
 											floors:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numFloorsCommercial" min="1">
+											<input type="number" class="form-control" min="0" id="numFloorsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numBasementsCommercial" class="col-sm-8 col-form-label">Number of
 											basements:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numBasementsCommercial">
+											<input type="number" class="form-control" min="0" id="numBasementsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numParkingCommercial" class="col-sm-8 col-form-label">Number of
+										<label for="numParkingCommercial" class="col-sm-8 col-form-label" min="0">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numParkingCommercial">
+											<input type="number" class="form-control" min="0" id="numParkingCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -289,7 +289,7 @@
 											elevators: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCommercial()"
-												class="form-control" id="numCagesCommercial">
+												class="form-control" min="0" id="numCagesCommercial">
 										</div>
 									</div>
 								</fieldset>
@@ -304,7 +304,7 @@
 										<label for="numCompaniesCorporate" class="col-sm-8 col-form-label">Number of
 											companies:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numCompaniesCorporate">
+											<input type="number" class="form-control" min="0" id="numCompaniesCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -312,7 +312,7 @@
 											floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" id="numFloorsCorporate" min="1">
+												class="form-control" min="0" id="numFloorsCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -320,23 +320,23 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" id="numBasementsCorporate">
+												class="form-control" min="0" id="numBasementsCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numParkingCorporate" class="col-sm-8 col-form-label">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numParkingCorporate">
+											<input type="number" class="form-control" min="0" id="numParkingCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label">Maximum
+										<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label" min="0">Maximum
 											occupants per
 											floor: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" id="numOccupantsFloorCorporate">
+												class="form-control" min="0" id="numOccupantsFloorCorporate">
 										</div>
 									</div>
 								</fieldset>
@@ -351,7 +351,7 @@
 										<label for="numBusinessesHybrid" class="col-sm-8 col-form-label">Number of
 											businesses:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numBusinessesHybrid">
+											<input type="number" class="form-control" min="0" id="numBusinessesHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -359,7 +359,7 @@
 											floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" id="numFloorsHybrid" min="1">
+												class="form-control" min="0" id="numFloorsHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -367,23 +367,23 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" id="numBasementsHybrid">
+												class="form-control" min="0" id="numBasementsHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numParkingHybrid" class="col-sm-8 col-form-label">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" id="numParkingHybrid">
+											<input type="number" class="form-control" min="0" id="numParkingHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label">Maximum
+										<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label" min="0">Maximum
 											occupants per
 											floor: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" id="numOccupantsFloorHybrid">
+												class="form-control" min="0" id="numOccupantsFloorHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">

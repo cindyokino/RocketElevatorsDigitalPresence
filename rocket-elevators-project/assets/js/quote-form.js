@@ -10,13 +10,16 @@
 		-------------------------------
 		FUNCTIONS
 
+			CHECK THE INPUT IS INVALID
 			CALCULATE NUMBER OF ELEVATORS - RESIDENTIAL BUILDING
 			CALCULATE NUMBER OF ELEVATORS - COMMERCIAL BUILDING
-			CALCULATE NUMBER OF ELEVATORS - CORPORATE & HYBRID BUILDINGS
-			CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING - call function numElevatorsCorporateAndHybrid()
-			CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING  - call function numElevatorsCorporateAndHybrid()
+			CALCULATE NUMBER OF ELEVATORS - CORPORATEBUILDING
+			CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING		
 			RADIO BUTTONS - SHOW & HIDE FORMS AND ITS BUTTONS
-			CALCULATE PRICE EQUIPMENTS
+			FORMAT MONEY - JAVASCRIPT NUMBER FORMATTER
+			CALCULATE PRICES STANDARD
+			CALCULATE PRICES PREMIUM
+			CALCULATE PRICES EXCELIUM
 			CALCULATE PRICE BY LINE OF PRODUCT SELECTED
 		-------------------------------
 		LISTENERS
@@ -88,7 +91,12 @@ var numElevatorsResidential = function () {
 	var averageDoorsPerFloor = Math.ceil(apartments / (floors - basements));
 
 	if (floors === basements) {
-		alert("Please contact us for more details.\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of floors and basements are the same our specialist will give you the best option.");
+		alert("Please contact us for more details!\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of floors and basements are the same our specialist will give you the best option.");
+		return false;
+	}
+
+	if (floors < basements) {
+		alert("Please contact us for more details!\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of basements is greater than the number of floors, our specialist will give you the best option.");
 		return false;
 	}
 
