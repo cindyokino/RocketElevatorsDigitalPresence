@@ -1,21 +1,35 @@
 <!-- PAGE LEVEL SCRIPTS -->
-<!-- IMPORT send-message.js -->
 <script type="text/javascript">
+
 /***** CHECK THE INPUT IS INVALID *****/
 var isInvalidInput = function(id) {
 	return !$(id).get(0).checkValidity();
 }
 
+/***** SEND MESSAGE *****/
 var sendMessage = function () {
 	if (isInvalidInput("#contactName")
 	|| isInvalidInput("#contactEmail")
 	|| isInvalidInput("#contactDescription")
 	|| isInvalidInput("#contactMessage")) {
-		alert("Please fill out all the required* fields");	
 		return false;
 	}
-	$("#alert_success").show();
+    $("#alert_success").show();    
 }
+
+/***** SUBSCRIBE *****/
+var buttonSubscribe = function () {
+    console.log("first line");
+
+    console.log( !$("#email").get(0).checkValidity());
+	if (isInvalidInput("#email")) {
+        console.log("entrou no if");
+		return false;
+    }
+    console.log("esta valido");
+    alert("Thank your for subscribing!");    
+}
+
 </script>
 <!--/ PAGE LEVEL SCRIPTS -->
 
@@ -39,7 +53,7 @@ var sendMessage = function () {
 
                 <h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
 
-                <form onsubmit="sendMessage(); return false" action="" method="post" enctype="multipart/form-data">
+                <form onsubmit="sendMessage(); return false">
                     <fieldset>
                         <input type="hidden" name="action" value="contact_send" />
 
@@ -146,7 +160,7 @@ var sendMessage = function () {
                     <span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a
                             href="tel:1800-555-1234">+1 (581) 701-0303</a></span>
                     <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a
-                            href="mailto:mail@yourdomain.com">mail@rocketelevators.com</a></span>
+                            href="mailto:nfo@codeboxx.biz">mail@rocketelevators.com</a></span>
                 </p>
 
             </div>
@@ -188,12 +202,10 @@ var sendMessage = function () {
                 <!-- Newsletter Form -->
                 <p>Subscribe to Our Newsletter to get Important News & Offers</p>
 
-                <form onsubmit="return false" class="validate" action="" method="post"
-                    data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+                <form onsubmit="buttonSubscribe(); return false">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="email" id="email" name="email" class="form-control required"
-                            placeholder="Enter your Email">
+                        <input required type="email" id="email" name="email" class="form-control" placeholder="Enter your Email">
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="submit">Subscribe</button>
                         </span>
