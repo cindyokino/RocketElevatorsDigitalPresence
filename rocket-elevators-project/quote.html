@@ -28,16 +28,16 @@
 	<!-- PAGE LEVEL SCRIPTS -->
 	<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 	<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
-
+	
 	<!-- CONTACT AND FOOTER -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	crossorigin="anonymous">
-</script>
-<script>
-	$(function () {
-		$("#addFooter").load("footer.html");
-	});
-</script>
+		crossorigin="anonymous">
+		</script>
+	<script>
+		$(function () {
+			$("#addFooter").load("footer.html");
+		});
+	</script>		
 </head>
 
 <body class="smoothscroll enable-animation">
@@ -225,19 +225,22 @@
 								<fieldset>
 									<legend>Residential building</legend>
 									<div class="form-group row col-md-6">
-										<label for="numApartmentsResidential" class="col-sm-8 col-form-label" min="0">Number of
+										<label for="numApartmentsResidential" class="col-sm-8 col-form-label" min="0" oninput="validity.valid|| 
+										(value='');">Number of
 											apartments: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" min="0" id="numApartmentsResidential">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numApartmentsResidential">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numFloorsResidential" class="col-sm-8 col-form-label">Total number
+										<label for="numFloorsResidential" class="col-sm-8 col-form-label">Number
 											of floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" min="0" id="numFloorsResidential">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numFloorsResidential">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -245,7 +248,8 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsResidential()"
-												class="form-control" min="0" id="numBasementsResidential">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numBasementsResidential">
 										</div>
 									</div>
 								</fieldset>
@@ -260,28 +264,33 @@
 										<label for="numBusinessesCommercial" class="col-sm-8 col-form-label">Number of
 											businesses:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numBusinessesCommercial">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numBusinessesCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Total number of
+										<label for="numFloorsCommercial" class="col-sm-8 col-form-label">Number of
 											floors:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numFloorsCommercial">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numFloorsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numBasementsCommercial" class="col-sm-8 col-form-label">Number of
 											basements:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numBasementsCommercial">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numBasementsCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numParkingCommercial" class="col-sm-8 col-form-label" min="0">Number of
+										<label for="numParkingCommercial" class="col-sm-8 col-form-label" min="0" oninput="validity.valid|| 
+										(value='');">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numParkingCommercial">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numParkingCommercial">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -289,7 +298,8 @@
 											elevators: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCommercial()"
-												class="form-control" min="0" id="numCagesCommercial">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numCagesCommercial">
 										</div>
 									</div>
 								</fieldset>
@@ -304,15 +314,17 @@
 										<label for="numCompaniesCorporate" class="col-sm-8 col-form-label">Number of
 											companies:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numCompaniesCorporate">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numCompaniesCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numFloorsCorporate" class="col-sm-8 col-form-label">Total number of
+										<label for="numFloorsCorporate" class="col-sm-8 col-form-label">Number of
 											floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" min="0" id="numFloorsCorporate">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numFloorsCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -320,23 +332,27 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" min="0" id="numBasementsCorporate">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numBasementsCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numParkingCorporate" class="col-sm-8 col-form-label">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numParkingCorporate">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numParkingCorporate">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label" min="0">Maximum
+										<label for="numOccupantsFloorCorporate" class="col-sm-8 col-form-label" min="0" oninput="validity.valid|| 
+										(value='');">Maximum
 											occupants per
 											floor: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsCorporate()"
-												class="form-control" min="0" id="numOccupantsFloorCorporate">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numOccupantsFloorCorporate">
 										</div>
 									</div>
 								</fieldset>
@@ -351,15 +367,17 @@
 										<label for="numBusinessesHybrid" class="col-sm-8 col-form-label">Number of
 											businesses:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numBusinessesHybrid">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numBusinessesHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numFloorsHybrid" class="col-sm-8 col-form-label">Total number of
+										<label for="numFloorsHybrid" class="col-sm-8 col-form-label">Number of
 											floors: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" min="0" id="numFloorsHybrid">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numFloorsHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -367,23 +385,26 @@
 											basements: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" min="0" id="numBasementsHybrid">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numBasementsHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
 										<label for="numParkingHybrid" class="col-sm-8 col-form-label">Number of
 											parkings:</label>
 										<div class="col-md-4">
-											<input type="number" class="form-control" min="0" id="numParkingHybrid">
+											<input type="number" class="form-control" min="0" oninput="validity.valid|| 
+											(value='');" id="numParkingHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
-										<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label" min="0">Maximum
+										<label for="numOccupantsFloorHybrid" class="col-sm-8 col-form-label">Maximum
 											occupants per
 											floor: <span class="blueColor">*</span></label>
 										<div class="col-md-4">
 											<input required type="number" onchange="numElevatorsHybrid()"
-												class="form-control" min="0" id="numOccupantsFloorHybrid">
+												class="form-control" min="0" oninput="validity.valid|| 
+												(value='');" id="numOccupantsFloorHybrid">
 										</div>
 									</div>
 									<div class="form-group row col-md-6">
@@ -392,7 +413,8 @@
 											building:</label>
 										<div class="col-md-4">
 											<input type="number" class="form-control" id="numOHoursActivityHybrid"
-												min="0" max="24">
+												min="0" oninput="validity.valid|| 
+												(value='');" max="24">
 										</div>
 									</div>
 								</fieldset>
@@ -449,7 +471,8 @@
 									<button onclick="numElevatorsHybrid(); onChangeProductLine()"
 										class="btn btn-primary"><i class="fa fa-check"></i> SUBMIT</button>
 								</div>
-							</div> <!-- /Form buttons -->
+							</div> 
+							<!-- /Form buttons -->
 
 						</form>
 

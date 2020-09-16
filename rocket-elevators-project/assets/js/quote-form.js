@@ -34,21 +34,13 @@
 /* ------------------------------------------------------------------------------
 ======================== GLOBAL VARIABLES AND CONSTANTS ======================== 
 --------------------------------------------------------------------------------*/
+let numElevators = 0;
+let priceElevators = 0;
+let priceInstallation = 0;
+let totalPrice = 0;
 
-var numElevators = 0;
-var priceElevators = 0;
-var priceInstallation = 0;
-var totalPrice = 0;
-
-const standardPrice = 7565;
-const premiumPrice = 12345;
-const exceliumPrice =15400;
-
-const standardFee= 10;
-const premiumFee = 13;
-const exceliumFee = 16;
-
-
+// let baseUrl = "https://rocket-elevators-calculator.herokuapp.com/";
+let baseUrl = "http://localhost:5000";
 
 
 /* ------------------------------------------------------------------------------
@@ -59,7 +51,7 @@ const exceliumFee = 16;
 $(function() { // $(function() {}    *is the same as*    $(document).ready(function () {}
     $("#quoteForm input").keypress(function (e) { 
 		if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-			var optionValue = $('input[name=typeOfBuilding]:checked').val();
+			let optionValue = $('input[name=typeOfBuilding]:checked').val();
 			$('#' + optionValue + 'Button').find('button').click()
 			return false;
 		} 
@@ -69,42 +61,39 @@ $(function() { // $(function() {}    *is the same as*    $(document).ready(funct
 
 
 /***** CHECK THE INPUT IS INVALID *****/
-var isInvalidInput = function(id) {
+let isInvalidInput = function(id) {
 	return !$(id).get(0).checkValidity();
 }
 
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - RESIDENTIAL BUILDING *****/
-var numElevatorsResidential = function () {
+let numElevatorsResidential = function () {
+	
 	if (isInvalidInput("#numApartmentsResidential")
 	|| isInvalidInput("#numFloorsResidential")
 	|| isInvalidInput("#numBasementsResidential")) {
 		return false;
 	}	
-
-	var elevators = 0;
-	var numColumns = 0;	
-	var apartments = parseInt($("#numApartmentsResidential").val());
-	var floors = parseInt($("#numFloorsResidential").val());
-	var basements = parseInt($("#numBasementsResidential").val());
-	var averageDoorsPerFloor = Math.ceil(apartments / (floors - basements));
-
-	if (floors === basements) {
-		alert("Please contact us for more details!\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of floors and basements are the same our specialist will give you the best option.");
-		return false;
-	}
-
-	if (floors < basements) {
-		alert("Please contact us for more details!\r\nOur team will need more information about your project. \r\n\r\nIn this specific case where your number of basements is greater than the number of floors, our specialist will give you the best option.");
-		return false;
-	}
-
-	elevators = Math.ceil(averageDoorsPerFloor / 6);
-	if (floors > 20) {
-		numColumns = Math.ceil(floors / 20);
-		elevators = elevators * numColumns;
-	}
+	
+	let elevators = 0;
+	let apartments = $("#numApartmentsResidential").val();
+	let floors = $("#numFloorsResidential").val();
+	let basements = $("#numBasementsResidential").val();
+	
+	$.get({
+		url: baseUrl + "/elevatorsResidential?apartments="+ apartments + "&floors=" + floors + "&basements=" + basements,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			elevators = data;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
 
 	$("#calculatedNumOfElevators").text(elevators);	
 	numElevators = elevators;
@@ -112,13 +101,13 @@ var numElevatorsResidential = function () {
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - COMMERCIAL BUILDING *****/
-var numElevatorsCommercial = function () {
+let numElevatorsCommercial = function () {
 	if (isInvalidInput("#numCagesCommercial")) {
 		return false;
 	}
 
-	var elevators = 0;
-	elevators = Number($("#numCagesCommercial").val());
+	let elevators = 0;
+	elevators = parseInt($("#numCagesCommercial").val());
 
 	$("#calculatedNumOfElevators").text(elevators);	
 	numElevators = elevators;
@@ -126,59 +115,64 @@ var numElevatorsCommercial = function () {
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - CORPORATE BUILDING *****/
-var numElevatorsCorporate = function () { 
+let numElevatorsCorporate = function () { 
 	if (isInvalidInput("#numFloorsCorporate")
 	|| isInvalidInput("#numBasementsCorporate")
 	|| isInvalidInput("#numOccupantsFloorCorporate")) {
 		return false;
 	}
 
-	var elevators = 0;
-	var numColumns = 0;	
-	var numberElevatorsPerColumn = 0;
-	var companies = parseInt($("#numCompaniesCorporate").val());
-	var floors = parseInt($("#numFloorsCorporate").val());
-	var basements = parseInt($("#numBasementsCorporate").val());
-	var parkings = parseInt($("#numParkingCorporate").val());
-	var occupants = parseInt($("#numOccupantsFloorCorporate").val());
+	let elevatorsTotal = 0;
+	let floors = $("#numFloorsCorporate").val();
+	let basements = $("#numBasementsCorporate").val();
+	let occupants = $("#numOccupantsFloorCorporate").val();
 
-	var totalOccupants = occupants * floors;
-	elevators = Math.ceil(totalOccupants / 1000);
-	numColumns = Math.ceil(floors / 20);
-	numberElevatorsPerColumn = Math.ceil(elevators / numColumns);
-
-	elevatorsPerColumn = Math.ceil(elevators / numColumns);
-	elevatorsTotal = Math.ceil(elevatorsPerColumn * numColumns);
-
+	$.get({
+		url: baseUrl + "/elevatorsCorporate?floors=" + floors + "&basements=" + basements + "&occupants=" + occupants,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			elevatorsTotal = data;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
+	
 	$("#calculatedNumOfElevators").text(elevatorsTotal);	
 	numElevators = elevatorsTotal;
 };
 
 
 /***** CALCULATE NUMBER OF ELEVATORS - HYBRID BUILDING *****/
-var numElevatorsHybrid= function () { 
+let numElevatorsHybrid= function () { 
 	if (isInvalidInput("#numFloorsHybrid")
 	|| isInvalidInput("#numBasementsHybrid")
 	|| isInvalidInput("#numOccupantsFloorHybrid")) {
 		return false;
 	}
 
-	var elevators = 0;
-	var numColumns = 0;	
-	var numberElevatorsPerColumn = 0;
-	var companies = parseInt($("#numCompaniesHybrid").val());
-	var floors = parseInt($("#numFloorsHybrid").val());
-	var basements = parseInt($("#numBasementsHybrid").val());
-	var parkings = parseInt($("#numParkingHybrid").val());
-	var occupants = parseInt($("#numOccupantsFloorHybrid").val());
+	let elevators = 0;
+	let elevatorsTotal = 0;
+	let floors = parseInt($("#numFloorsHybrid").val());
+	let basements = parseInt($("#numBasementsHybrid").val());
+	let occupants = parseInt($("#numOccupantsFloorHybrid").val());
 
-	var totalOccupants = occupants * floors;
-	elevators = Math.ceil(totalOccupants / 1000);
-	numColumns = Math.ceil(floors / 20);
-	numberElevatorsPerColumn = Math.ceil(elevators / numColumns);
-
-	elevatorsPerColumn = Math.ceil(elevators / numColumns);
-	elevatorsTotal = Math.ceil(elevatorsPerColumn * numColumns);
+	$.get({
+		url: baseUrl + "/elevatorsHybrid?floors="+ floors + "&basements=" + basements + "&occupants=" + occupants,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			elevatorsTotal = data;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
 
 	$("#calculatedNumOfElevators").text(elevatorsTotal);	
 	numElevators = elevatorsTotal;
@@ -187,11 +181,11 @@ var numElevatorsHybrid= function () {
 
 
 /***** RADIO BUTTONS - SHOW & HIDE FORMS AND ITS BUTTONS *****/
-var onChangeBuildingTypeform = function () {
-	var optionName = this.value;
+let onChangeBuildingTypeform = function () {
+	let optionName = this.value;
 	
-	var optionNameForm = optionName + "Form"; 
-	var optionNameButton = optionName + "Button";
+	let optionNameForm = optionName + "Form"; 
+	let optionNameButton = optionName + "Button";
 
 	$(".hideForm").hide();
 	$("#" + optionNameForm).show();
@@ -209,7 +203,7 @@ var onChangeBuildingTypeform = function () {
 
 
 /***** FORMAT MONEY - JAVASCRIPT NUMBER FORMATTER eg.:(formater.format(value) *****/ 
-var formatter = new Intl.NumberFormat(undefined, {
+let formatter = new Intl.NumberFormat(undefined, {
 	style: 'currency',
 	currency: 'USD',
 });
@@ -217,10 +211,23 @@ var formatter = new Intl.NumberFormat(undefined, {
 
 
 /***** CALCULATE PRICES STANDARD *****/
-var standardCalculetedPrices = function () {
-	priceElevators = numElevators * standardPrice;
-	priceInstallation = priceElevators * (standardFee / 100);
-	totalPrice = priceElevators + priceInstallation;
+let standardCalculetedPrices = function () {
+	$.get({
+		url: baseUrl + "/standard?numElevators="+ numElevators,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			let body = JSON.parse(data);
+			standardPrice = body.standardPrice;
+			priceInstallation = body.priceInstallation;
+			totalPrice = body.totalPrice;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
 
 	$("#chosenLine").text("standard");
 	$("#unitPrice").text(formatter.format(standardPrice));
@@ -230,10 +237,23 @@ var standardCalculetedPrices = function () {
 
 
 // /***** CALCULATE PRICES PREMIUM *****/
-var premiumCalculetedPrices = function () {
-	priceElevators = numElevators * premiumPrice;
-	priceInstallation = priceElevators * (premiumFee / 100);
-	totalPrice = priceElevators + priceInstallation;
+let premiumCalculetedPrices = function () {
+	$.get({
+		url: baseUrl + "/premium?numElevators="+ numElevators,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			let body = JSON.parse(data);
+			premiumPrice = body.premiumPrice;
+			priceInstallation = body.priceInstallation;
+			totalPrice = body.totalPrice;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
 
 	$("#chosenLine").text("premium");
 	$("#unitPrice").text(formatter.format(premiumPrice));
@@ -243,10 +263,23 @@ var premiumCalculetedPrices = function () {
 
 
 // /***** CALCULATE PRICES EXCELIUM *****/
-var exceliumCalculetedPrices = function () {
-	priceElevators = numElevators * exceliumPrice;
-	priceInstallation = priceElevators * (exceliumFee / 100);
-	totalPrice = priceElevators + priceInstallation;
+let exceliumCalculetedPrices = function () {
+	$.get({
+		url: baseUrl + "/excelium?numElevators="+ numElevators,
+		dataType: "text",
+		async: false,
+		contentType: "application/text",
+		success: function (data) {
+			let body = JSON.parse(data);
+			exceliumPrice = body.exceliumPrice;
+			priceInstallation = body.priceInstallation;
+			totalPrice = body.totalPrice;
+		},
+		error: function (res) {
+			console.log("ERROR " + res);
+			return false;
+		}
+	});
 
 	$("#chosenLine").text("excelium");
 	$("#unitPrice").text(formatter.format(exceliumPrice));
@@ -257,17 +290,17 @@ var exceliumCalculetedPrices = function () {
 
 
 /***** CALCULATE PRICE BY LINE OF PRODUCT SELECTED *****/
-var onChangeProductLine = function () {
+let onChangeProductLine = function () {
 	if ($('#standardLine').is(':checked')) { 		
 		$("#unitPrice").text(formatter.format(unitPrice));
 		standardCalculetedPrices();
 	}
 	else if ($('#premiumLine').is(':checked')) { 
-		$("#unitPrice").text(formatter.format(premiumPrice));
+		$("#unitPrice").text(formatter.format(unitPrice));
 		premiumCalculetedPrices();
 	}
 	else {
-		$("#unitPrice").text(formatter.format(exceliumPrice)); 
+		$("#unitPrice").text(formatter.format(unitPrice)); 
 		exceliumCalculetedPrices();
 	}
 };
