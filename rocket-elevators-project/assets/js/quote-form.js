@@ -39,8 +39,8 @@ let priceElevators = 0;
 let priceInstallation = 0;
 let totalPrice = 0;
 
-// let baseUrl = "https://rocket-elevators-calculator.herokuapp.com/";
-let baseUrl = "http://localhost:5000";
+let baseUrl = "https://rocket-elevators-calculator.herokuapp.com"; 
+// let baseUrl = "http://localhost:5000";
 
 
 /* ------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ $(function() { // $(function() {}    *is the same as*    $(document).ready(funct
 
 
 /***** CHECK THE INPUT IS INVALID *****/
-let isInvalidInput = function(id) {
+isInvalidInput = function(id) {
 	return !$(id).get(0).checkValidity();
 }
 
